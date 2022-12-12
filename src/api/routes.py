@@ -9,6 +9,7 @@ from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 from flask_jwt_extended import JWTManager
 
+
 api = Blueprint('api', __name__)
 
 
@@ -38,7 +39,7 @@ def login():
     password = request.json.get("password", None)
     is_parents = request.json.get ("is_parents", None) # Meter si es padre o profesor
     user = User.query.filter_by(email=email, password=password, is_parents= is_parents).first()
-   
+    
     if user == None:
         return jsonify ({"msg": "Email o contraseña incorrecto"}),401
     access_token = create_access_token(identity=user.email)
