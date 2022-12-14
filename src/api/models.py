@@ -27,30 +27,14 @@ class User(db.Model):
             # do not serialize the password, its a security breach
         }
 
-class Pictogramas (db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    description =  db.Column (db.String(250), nullable=False)
-    url = db.Column (db.String(200), nullable=False)
-
-    def __repr__(self):
-        return f'<Pictogramas {self.description}>'
-
-    def serialize(self):
-        return {
-            "id": self.id,
-            "description" : self.description,
-            "url" : self.url
-    
-        }
 
 class Hijos (db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nombre = db.Column (db.String(80), nullable=False)
     apellidos = db.Column (db.String(80), nullable=False)
-    dia_semana= db.Column (db.String (80), nullable = False)
-    momento_dia= db.Column (db.String (80), nullable = False)
-    pictogramas_id = db.Column (db.Integer, db.ForeignKey("pictogramas.id"))
-    pictogramas = db.relationship ("Pictogramas")
+    agenda_id = db.Column (db.Integer, db.ForeignKey("agenda.id"))
+    agenda = db.relationship("Agenda")
+   
     def __repr__(self):
         return f'<Hijos {self.nombre}>'
 
@@ -61,3 +45,38 @@ class Hijos (db.Model):
             "apellidos": self.apellidos
         }
 
+class Pictogramas (db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    categoria =  db.Column (db.String(250), nullable=False)
+    url = db.Column (db.String(200), nullable=False)
+
+    def __repr__(self):
+        return f'<Pictograma {self.categoria}>'
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "categoria" : self.categoria,
+            "url" : self.url
+    
+        }
+
+class Agenda ( db.Model):
+    id = db.Column ( db.Integer, primary_key = True)
+    dias_semana = db.Column (db.String(30), nullable= False)
+    momentos_del_dia = db.Column ( db.String(30), nullable = False)
+    pictogramas_id = db.Column (db.Integer, db.ForeignKey("pictogramas.id"))
+    pictogramas = db.relationship ("Pictogramas")
+
+def __repr__(self):
+        return f'<Agenda {self.dias_semana}>'
+
+def serialize(self):
+    return {
+        "id": self.id,
+        "dias_semana" : self.dias_semana,
+        "momentos_del_dia" : self.momentos_del_dia
+    
+    }
+
+# class Mensajeria (db.Model):  dar una vuelta para pensarlo ;)
