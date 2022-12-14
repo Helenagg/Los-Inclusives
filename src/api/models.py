@@ -12,7 +12,7 @@ class User(db.Model):
     direccion = db.Column (db.String(80), nullable=True)
     is_parents = db.Column(db.Boolean(), nullable=False) # Aquí decimos si es padre o no para decidir por una ruta padres o profesor
     hijos_id = db.Column (db.Integer, db.ForeignKey("hijos.id"))
-    hijos = db.relationship(Hijos)
+    hijos = db.relationship("Hijos")
     def __repr__(self):
         return f'<User {self.email}>'
 
@@ -26,6 +26,7 @@ class User(db.Model):
             "direccion" : self.direccion
             # do not serialize the password, its a security breach
         }
+
 class Pictogramas (db.Model):
     id = db.Column(db.Integer, primary_key=True)
     description =  db.Column (db.String(250), nullable=False)
@@ -49,7 +50,7 @@ class Hijos (db.Model):
     dia_semana= db.Column (db.String (80), nullable = False)
     momento_dia= db.Column (db.String (80), nullable = False)
     pictogramas_id = db.Column (db.Integer, db.ForeignKey("pictogramas.id"))
-    pictogramas = db.relationship (Pictogramas)
+    pictogramas = db.relationship ("Pictogramas")
     def __repr__(self):
         return f'<Hijos {self.nombre}>'
 
