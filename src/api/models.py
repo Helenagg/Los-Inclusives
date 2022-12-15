@@ -69,7 +69,7 @@ class Agenda ( db.Model):
     pictogramas = db.relationship ("Pictogramas")
 
 def __repr__(self):
-        return f'<Agenda {self.dias_semana}>'
+        return f'<Agenda {self.id}>'
 
 def serialize(self):
     return {
@@ -79,4 +79,22 @@ def serialize(self):
     
     }
 
-# class Mensajeria (db.Model):  dar una vuelta para pensarlo ;)
+class Mensajeria (db.Model): 
+    id = db.Column ( db.Integer, primary_key = True)
+    user_emisor = db.Column ( db.Integer, db.ForeignKey("user.id"))
+    user_emi = db.relationship ("User")
+    # user_receptor = db.Column ( db.Integer, db.ForeignKey("user.id"))
+    # user_recep = db.relationship ("User")
+    mensaje = db.Column (db.String ( 2000), nullable = False)
+
+def __repr__(self):
+        return f'<Mensajeria {self.id}>'
+
+def serialize(self):
+    return {
+        "id": self.id,
+        "user_emisor" : self.user_emisor,
+        "user_receptor" : self.user_receptor,
+        "mensaje" : self.menasje
+    
+    }
