@@ -12,7 +12,8 @@ class User(db.Model):
     direccion = db.Column (db.String(80), nullable=True)
     is_parents = db.Column(db.Boolean(), nullable=False) # Aquí decimos si es padre o no para decidir por una ruta padres o profesor
     hijos_id = db.Column (db.Integer, db.ForeignKey("hijos.id"))
-    hijos = db.relationship("Hijos")
+    hijos = db.relationship("Hijos") 
+    
     def __repr__(self):
         return f'<User {self.email}>'
 
@@ -48,6 +49,7 @@ class Hijos (db.Model):
 class Pictogramas (db.Model):
     id = db.Column(db.Integer, primary_key=True)
     categoria =  db.Column (db.String(250), nullable=False)
+    descripcion = db.Column (db.String(250), nullable=False)
     url = db.Column (db.String(200), nullable=False)
 
     def __repr__(self):
@@ -63,10 +65,11 @@ class Pictogramas (db.Model):
 
 class Agenda ( db.Model):
     id = db.Column ( db.Integer, primary_key = True)
-    dias_semana = db.Column (db.String(30), nullable= False)
-    momentos_del_dia = db.Column ( db.String(30), nullable = False)
+    dias_semana = db.Column (db.String(200), nullable= False)
+    momentos_del_dia = db.Column ( db.String(200), nullable = False)
     pictogramas_id = db.Column (db.Integer, db.ForeignKey("pictogramas.id"))
     pictogramas = db.relationship ("Pictogramas")
+
 
 def __repr__(self):
         return f'<Agenda {self.id}>'
@@ -79,22 +82,22 @@ def serialize(self):
     
     }
 
-class Mensajeria (db.Model): 
-    id = db.Column ( db.Integer, primary_key = True)
-    user_emisor = db.Column ( db.Integer, db.ForeignKey("user.id"))
-    user_emi = db.relationship ("User")
-    # user_receptor = db.Column ( db.Integer, db.ForeignKey("user.id"))
-    # user_recep = db.relationship ("User")
-    mensaje = db.Column (db.String ( 2000), nullable = False)
+# class Mensajeria (db.Model): 
+#     id = db.Column ( db.Integer, primary_key = True)
+#     user_emisor = db.Column ( db.Integer, db.ForeignKey("user.id"))
+#     user_emi = db.relationship ("User")
+#     # user_receptor = db.Column ( db.Integer, db.ForeignKey("user.id"))
+#     # user_recep = db.relationship ("User")
+#     mensaje = db.Column (db.String ( 2000), nullable = False)
 
-def __repr__(self):
-        return f'<Mensajeria {self.id}>'
+# def __repr__(self):
+#         return f'<Mensajeria {self.id}>'
 
-def serialize(self):
-    return {
-        "id": self.id,
-        "user_emisor" : self.user_emisor,
-        "user_receptor" : self.user_receptor,
-        "mensaje" : self.menasje
+# def serialize(self):
+#     return {
+#         "id": self.id,
+#         "user_emisor" : self.user_emisor,
+#         "user_receptor" : self.user_receptor,
+#         "mensaje" : self.menasje
     
-    }
+#     }
