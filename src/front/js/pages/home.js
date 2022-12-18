@@ -2,7 +2,7 @@ import React, { useContext,useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -45,25 +45,28 @@ export const Home = () => {
 	};
   
 	return (
-	  <div className="text-center mt-5">
-		<h1>VAMOS A ENTRAR</h1>
-  
-		<div>
-		  <lavel>E-mail: </lavel>
-		  <input onChange={(event) => setEmail(event.target.value)}></input>
-		  <label className="m-2">Contraseña: </label>
-		  <input onChange={(event) => setPassword(event.target.value)}></input>
-		</div>
-  
-		<div>
-		  <button onClick={Login}>Login</button>
-		  {error && (
-			<div className="alert alert-danger" role="alert">
-			  {error}
+		<>className="container text-center mt-5"
+			<div >
+				<h1 className="text-success">LOGIN</h1>
+				<div className="row justify-content-md-center"> 
+					<div className="col-3">
+					{/* <label>E-mail: </label> */}
+					<input className="form-control mb-3 border border-success" placeholder="Email" Change={(event) => setEmail(event.target.value)}></input>
+					{/* <label className="m-2">Contraseña: </label> */}
+					<input className="form-control mb-3 border border-success" placeholder="Contraseña" onChange={(event) => setPassword(event.target.value)}></input>
+					</div>
+				</div>  
+				<div>
+					<button className="btn btn-outline-success m-3" onClick={Login}>Login</button>
+					<button className="btn btn-outline-success"><Link to={"/signup"} style={{textDecoration: 'none', color: 'green'}}>Registro</Link></button>
+					{error && (
+						<div className="alert alert-danger" role="alert">
+						{error}
+						</div>
+					)}
+				</div>
 			</div>
-		  )}
-		</div>
-	  </div>
+		</>
 	);
   };
   
