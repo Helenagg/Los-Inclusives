@@ -1,6 +1,8 @@
 import React, { useContext,useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
+import background from "../../img/manos.png";
+
 import "../../styles/home.css";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -45,25 +47,23 @@ export const Home = () => {
 	};
   
 	return (
-		<>className="container text-center mt-5"
-			<div >
-				<h1 className="text-success">LOGIN</h1>
+		<>
+			<div className="container text-center mt-5" style={{backgroundImage: `url(${background})`}}>
 				<div className="row justify-content-md-center"> 
-					<div className="col-3">
-					{/* <label>E-mail: </label> */}
-					<input className="form-control mb-3 border border-success" placeholder="Email" Change={(event) => setEmail(event.target.value)}></input>
-					{/* <label className="m-2">Contraseña: </label> */}
-					<input className="form-control mb-3 border border-success" placeholder="Contraseña" onChange={(event) => setPassword(event.target.value)}></input>
+					<div className="col-3 border bg-white">
+						<h1 className="text-success">LOGIN</h1>
+						{/* <label>E-mail: </label> */}
+						<input className="form-control mb-3 border border-success" placeholder="Email" Change={(event) => setEmail(event.target.value)}></input>
+						{/* <label className="m-2">Contraseña: </label> */}
+						<input className="form-control mb-3 border border-success" placeholder="Contraseña" onChange={(event) => setPassword(event.target.value)}></input>
+						<button className="btn btn-outline-success m-3" onClick={Login}>Login</button>
+						<button className="btn btn-outline-success"><Link to={"/signup"} style={{textDecoration: 'none', color: 'green'}}>Registro</Link></button>
+						{error && (
+							<div className="alert alert-danger" role="alert">
+							{error}
+							</div>
+						)}
 					</div>
-				</div>  
-				<div>
-					<button className="btn btn-outline-success m-3" onClick={Login}>Login</button>
-					<button className="btn btn-outline-success"><Link to={"/signup"} style={{textDecoration: 'none', color: 'green'}}>Registro</Link></button>
-					{error && (
-						<div className="alert alert-danger" role="alert">
-						{error}
-						</div>
-					)}
 				</div>
 			</div>
 		</>
