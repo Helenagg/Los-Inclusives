@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint, json
-from api.models import db, User
+from api.models import db, User, Agenda
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
@@ -65,3 +65,50 @@ def private():
     }
     
     return jsonify(response_body), 200
+
+
+@api.route("/agenda", methods=["POST"])
+def crear_agenda():
+    data = request.data
+    data = json.loads (data)
+
+    agenda = Agenda(
+    momentos_del_dia = data["momentos_del_dia"], 
+    dias_semana = data["dias_semana"],
+    pictogramas_id = data["pictogramas_id"],)
+    db.session.add(agenda)
+    db.session.commit()
+
+    response_body = {
+    "message": "agenda creada"
+    }
+    return jsonify(response_body)
+
+
+
+@api.route("/agenda", methods=['DELETE'])
+def borrar_agenda():
+   data = request.data
+   data = json.loads(data)
+
+   agenda = agenda(
+   momentos_del_dia = data["momentos_del_dia"], 
+   dias_semana = data["dias_semana"],
+   pictogramas_id = data["pictogramas_id"],)
+   
+   db.session.delete(agenda)
+   db.session.commit()
+   
+   
+   response_body = {
+      "msg": "borrando agenda"
+
+   },
+   return jsonify(agenda), 200
+
+    
+
+
+
+
+
