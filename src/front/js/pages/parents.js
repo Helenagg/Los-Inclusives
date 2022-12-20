@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import { Context } from "../store/appContext";
 
-export const Demo = () => {
+export const Parents = () => {
 	const { store, actions } = useContext(Context);
 	const navigate = useNavigate
 	useEffect (() =>{

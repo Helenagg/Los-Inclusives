@@ -25,8 +25,11 @@ def signup():
     apellidos = data["apellidos"],
     telefono = data["telefono"],
     direccion = data["direccion"])
+    user =  User.query.filter_by(email=email).first()
     db.session.add(user)
     db.session.commit()
+    if user == None:
+       return jsonify ({"msg": "El usuario ya existe"}),401
     response_body = {
         "message": "Usuario Creado"
     }
