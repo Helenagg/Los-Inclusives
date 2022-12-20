@@ -21,13 +21,13 @@ export const Signup = () => {
         myHeaders.append("Content-Type", "application/json");
 
         var raw = JSON.stringify({
-        "email": "helena@gmail.com",
-        "password": "1234",
+        "email": email,
+        "password": password,
         "is_parents": true,
-        "nombre": "Helena",
-        "apellidos": "Gonzalez Gonzalez",
-        "telefono": "627971028",
-        "direccion": "Madrid"
+        "nombre": nombre,
+        "apellidos": apellidos,
+        "telefono": telefono,
+        "direccion": direccion
         });
 
         var requestOptions = {
@@ -38,8 +38,10 @@ export const Signup = () => {
         };
 
         fetch("https://3001-helenagg-losinclusives-ome5w3o6m5y.ws-eu79.gitpod.io/api/signup", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
+        .then(response => response.json())
+        .then(result => {
+            if(result.message) navigate("/")
+        })
         .catch(error => console.log('error', error));
     }
 
@@ -51,12 +53,12 @@ export const Signup = () => {
                     <div className="col-3">
                         <input className="form-check-input m-2" type="checkbox"></input>
                         <label className="form-check-label">Padre</label>
-                        <input className="form-control mb-3 border border-success" placeholder="Nombre"></input>
-                        <input className="form-control mb-3 border border-success" placeholder="Apellidos"></input>
-                        <input className="form-control mb-3 border border-success" placeholder="Teléfono"></input>
-                        <input className="form-control mb-3 border border-success" placeholder="Dirección"></input>
-                        <input className="form-control mb-3 border border-success" placeholder="Email"></input>
-                        <input className="form-control mb-3 border border-success" placeholder="Password"></input>
+                        <input className="form-control mb-3 border border-success" placeholder="Nombre" onChange={(event) => setNombre(event.target.value)}></input>
+                        <input className="form-control mb-3 border border-success" placeholder="Apellidos" onChange={(event) => setApellidos(event.target.value)}></input>
+                        <input className="form-control mb-3 border border-success" placeholder="Teléfono" onChange={(event) => setTelefono(event.target.value)}></input>
+                        <input className="form-control mb-3 border border-success" placeholder="Dirección" onChange={(event) => setDireccion(event.target.value)}></input>
+                        <input className="form-control mb-3 border border-success" placeholder="Email" onChange={(event) => setEmail(event.target.value)}></input>
+                        <input className="form-control mb-3 border border-success" placeholder="Password" onChange={(event) => setPassword(event.target.value)}></input>
                         <button className="btn btn-outline-success" onClick={registro}>Registrarse</button>
                     </div>
                 </div>
