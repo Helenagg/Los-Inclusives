@@ -9,12 +9,16 @@ export const Signup = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [is_parents, setIs_parents] = useState("");
+    const [isChecked, setIsChecked] = useState(false);
     const [nombre, setNombre] = useState("");
     const [apellidos, setApellidos] = useState("");
     const [telefono, setTelefono] = useState("");
     const [direccion, setDireccion] = useState("");
     const [error, setError] = useState("");
+
+    const handleOnChange = () => {
+        setIsChecked(!isChecked);
+      };
 
     const registro = () => {
         var myHeaders = new Headers();
@@ -23,7 +27,7 @@ export const Signup = () => {
         var raw = JSON.stringify({
         "email": email,
         "password": password,
-        "is_parents": true,
+        "is_parents": isChecked,
         "nombre": nombre,
         "apellidos": apellidos,
         "telefono": telefono,
@@ -51,7 +55,7 @@ export const Signup = () => {
                 <h1 className="text-success">REGISTRO</h1>
                 <div className="row justify-content-md-center">
                     <div className="col-3">
-                        <input className="form-check-input m-2" type="checkbox"></input>
+                        <input className="form-check-input m-2" type="checkbox" checked={isChecked} onChange={handleOnChange}></input>
                         <label className="form-check-label">Padre</label>
                         <input className="form-control mb-3 border border-success" placeholder="Nombre" onChange={(event) => setNombre(event.target.value)}></input>
                         <input className="form-control mb-3 border border-success" placeholder="Apellidos" onChange={(event) => setApellidos(event.target.value)}></input>
