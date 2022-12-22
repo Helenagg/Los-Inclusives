@@ -41,7 +41,7 @@ export const Signup = () => {
         redirect: 'follow'
         };
 
-        fetch("https://3001-helenagg-losinclusives-ome5w3o6m5y.ws-eu79.gitpod.io/api/signup", requestOptions)
+        fetch("https://3001-helenagg-losinclusives-ome5w3o6m5y.ws-eu80.gitpod.io/api/signup", requestOptions)
         .then(response => response.json())
         .then(result => {
             if(result.message) navigate("/")
