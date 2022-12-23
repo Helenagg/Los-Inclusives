@@ -11,9 +11,7 @@ class User(db.Model):
     telefono = db.Column (db.Integer, unique=True, nullable=True)
     direccion = db.Column (db.String(80), nullable=True)
     is_parents = db.Column(db.Boolean(), nullable=False) # Aquí decimos si es padre o no para decidir por una ruta padres o profesor
-    hijos_id = db.Column (db.Integer, db.ForeignKey("hijos.id"))
-    hijos = db.relationship("Hijos") 
-    
+        
     def __repr__(self):
         return f'<User {self.email}>'
 
@@ -44,6 +42,23 @@ class Hijos (db.Model):
             "id": self.id,
             "nombre": self.nombre,
             "apellidos": self.apellidos
+        }
+
+class Relacion (db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    hijos_id = db.Column (db.Integer, db.ForeignKey("hijos.id"))
+    hijos = db.relationship("Hijos")
+    user_id = db.Column (db.Integer, db.ForeignKey("user.id"))
+    user = db.relationship("User")
+   
+    def __repr__(self):
+        return f'<Relacion {self.id}>'
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "hijos_id": self.hijos_id,
+            "user_id": self.user_id
         }
 
 class Pictogramas (db.Model):
