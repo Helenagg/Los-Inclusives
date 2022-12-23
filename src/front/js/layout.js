@@ -9,6 +9,7 @@ import { Agenda } from "./pages/agenda";
 import { Pictogramas } from "./pages/pictogramas";
 import { Single } from "./pages/single";
 import { TablaJuejos } from "./pages/tablaJuegos";
+import { ModificarAgenda } from "./pages/modificarAgenda";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -28,6 +29,7 @@ const Layout = () => {
           <Routes>
             <Route element={<Home />} path="/" />
             <Route element={<Parents/>} path="/parents" />
+            <Route element={<ModificarAgenda/>} path="/modificaragenda" />
             <Route element={<Teacher/>} path="/teacher" />
             <Route element={<Agenda/>} path="/agenda"/>
             <Route element={<Pictogramas/>} path="/pictogramas" />
