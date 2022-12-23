@@ -16,10 +16,10 @@ export const Home = () => {
 	  var myHeaders = new Headers();
 	  myHeaders.append("Content-Type", "application/json");
   
-	  var raw = JSON.stringify({
-		email: email,
-		password: password,
-	  });
+	//   var raw = JSON.stringify({
+	// 	email: email,
+	// 	password: password,
+	//   });
   
 	  var requestOptions = {
 		method: "POST",
@@ -49,7 +49,7 @@ export const Home = () => {
 		<h1>VAMOS A ENTRAR</h1>
   
 		<div>
-		  <lavel>E-mail: </lavel>
+		  <label>E-mail:</label>
 		  <input onChange={(event) => setEmail(event.target.value)}></input>
 		  <label className="m-2">Contraseña: </label>
 		  <input onChange={(event) => setPassword(event.target.value)}></input>

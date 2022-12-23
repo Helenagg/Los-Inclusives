@@ -4,7 +4,6 @@ import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./pages/home";
 import { Parents } from "./pages/parents";
-import { ModificarAgenda } from "./pages/modificarAgenda";
 import { Teacher } from "./pages/teacher";
 import { Agenda } from "./pages/agenda";
 import { Pictogramas } from "./pages/pictogramas";
@@ -29,7 +28,6 @@ const Layout = () => {
           <Routes>
             <Route element={<Home />} path="/" />
             <Route element={<Parents/>} path="/parents" />
-            <Route element={<ModificarAgenda/>} path="/modificarAgenda" />
             <Route element={<Teacher/>} path="/teacher" />
             <Route element={<Agenda/>} path="/agenda"/>
             <Route element={<Pictogramas/>} path="/pictogramas" />
