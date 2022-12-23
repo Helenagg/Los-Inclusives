@@ -8,10 +8,10 @@ import { Teacher } from "./pages/teacher";
 import { Agenda } from "./pages/agenda";
 import { Pictogramas } from "./pages/pictogramas";
 import { Single } from "./pages/single";
+import { Signup } from "./pages/signup";
 import { TablaJuejos } from "./pages/tablaJuegos";
 import { ModificarAgenda } from "./pages/modificarAgenda";
 import injectContext from "./store/appContext";
-
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 
@@ -20,6 +20,7 @@ const Layout = () => {
   //the basename is used when your project is published in a subdirectory and not in the root of the domain
   // you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
   const basename = process.env.BASENAME || "";
+
 
   return (
     <div>
@@ -35,6 +36,7 @@ const Layout = () => {
             <Route element={<Pictogramas/>} path="/pictogramas" />
             <Route element={<TablaJuejos/>} path="/juegos" />
             <Route element={<Single/>} path="/single/:theid" />
+            <Route element={<Signup />} path="/signup" />
             <Route element={<h1>Not found!</h1>} />
           </Routes>
           <Footer />
