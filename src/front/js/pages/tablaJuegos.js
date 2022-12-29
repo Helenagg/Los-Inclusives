@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export const TablaJuejos = () => {
   return (
     <>
-    <div className="container">
+    <div className="contenedor">
       <CardJuegos
         imagen="https://tse2.mm.bing.net/th?id=OIP.4K5H9tGJwx9wFszI8FOCiQHaHa&pid=Api"
         titulo="Booble Sorting"
@@ -26,8 +26,8 @@ export const TablaJuejos = () => {
         url="https://www.cokitos.com/tangram-online-para-ninos/play/"
       />
     </div>
-    <div className = "container-button">
-    <a><Link to="/agenda"><i class="fas fa-calendar-alt"></i></Link></a>
+    <div className = "contenedor-button">
+    <Link to="/agenda"><i class="fas fa-calendar-alt"></i></Link>
     </div>
     </>
   );
