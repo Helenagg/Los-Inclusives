@@ -61,6 +61,4 @@ export const ModificarAgenda = () => {
       </p>
     </div>
   );
-
 };
-

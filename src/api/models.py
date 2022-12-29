@@ -27,39 +27,39 @@ class User(db.Model):
         }
 
 
-class Hijos (db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    nombre = db.Column (db.String(80), nullable=False)
-    apellidos = db.Column (db.String(80), nullable=False)
-    agenda_id = db.Column (db.Integer, db.ForeignKey("agenda.id"))
-    agenda = db.relationship("Agenda")
+# class Hijos (db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     nombre = db.Column (db.String(80), nullable=False)
+#     apellidos = db.Column (db.String(80), nullable=False)
+#     agenda_id = db.Column (db.Integer, db.ForeignKey("agenda.id"))
+#     agenda = db.relationship("Agenda")
    
-    def __repr__(self):
-        return f'<Hijos {self.nombre}>'
+#     def __repr__(self):
+#         return f'<Hijos {self.nombre}>'
 
-    def serialize(self):
-        return {
-            "id": self.id,
-            "nombre": self.nombre,
-            "apellidos": self.apellidos
-        }
+#     def serialize(self):
+#         return {
+#             "id": self.id,
+#             "nombre": self.nombre,
+#             "apellidos": self.apellidos
+#         }
 
-class Relacion (db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    hijos_id = db.Column (db.Integer, db.ForeignKey("hijos.id"))
-    hijos = db.relationship("Hijos")
-    user_id = db.Column (db.Integer, db.ForeignKey("user.id"))
-    user = db.relationship("User")
+# class Relacion (db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     hijos_id = db.Column (db.Integer, db.ForeignKey("hijos.id"))
+#     hijos = db.relationship("Hijos")
+#     user_id = db.Column (db.Integer, db.ForeignKey("user.id"))
+#     user = db.relationship("User")
    
-    def __repr__(self):
-        return f'<Relacion {self.id}>'
+#     def __repr__(self):
+#         return f'<Relacion {self.id}>'
 
-    def serialize(self):
-        return {
-            "id": self.id,
-            "hijos_id": self.hijos_id,
-            "user_id": self.user_id
-        }
+#     def serialize(self):
+#         return {
+#             "id": self.id,
+#             "hijos_id": self.hijos_id,
+#             "user_id": self.user_id
+#         }
 
 class Pictogramas (db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -82,6 +82,8 @@ class Agenda ( db.Model):
     id = db.Column ( db.Integer, primary_key = True)
     dias_semana = db.Column (db.String(200), nullable= False)
     momentos_del_dia = db.Column ( db.String(200), nullable = False)
+    nombre = db.Column (db.String(80), nullable=False)
+    apellidos = db.Column (db.String(80), nullable=False)
     pictogramas_id = db.Column (db.Integer, db.ForeignKey("pictogramas.id"))
     pictogramas = db.relationship ("Pictogramas")
 
@@ -93,7 +95,9 @@ def serialize(self):
     return {
         "id": self.id,
         "dias_semana" : self.dias_semana,
-        "momentos_del_dia" : self.momentos_del_dia
+        "momentos_del_dia" : self.momentos_del_dia,
+        "nombre": self.nombre,
+        "apellidos": self.apellidos
     
     }
 

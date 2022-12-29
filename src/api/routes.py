@@ -75,6 +75,8 @@ def crear_agenda():
     agenda = Agenda(
     momentos_del_dia = data["momentos_del_dia"], 
     dias_semana = data["dias_semana"],
+    nombre = data ["nombre"],
+    apellidos = data ["apellidos"],
     pictogramas_id = data["pictogramas_id"],)
     db.session.add(agenda)
     db.session.commit()
@@ -91,9 +93,11 @@ def borrar_agenda():
    data = request.data
    data = json.loads(data)
 
-   agenda = agenda(
+   agenda = Agenda(
    momentos_del_dia = data["momentos_del_dia"], 
    dias_semana = data["dias_semana"],
+   nombre = data ["nombre"],
+   apellidos = data ["apellidos"],
    pictogramas_id = data["pictogramas_id"],)
    
    db.session.delete(agenda)
