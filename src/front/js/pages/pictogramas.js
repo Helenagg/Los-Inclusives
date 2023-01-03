@@ -7,29 +7,29 @@ export const Pictogramas = () => {
     const [result, setResult] = useState({})
 
     const busqueda = () => {
-        var raw = "";
+        // var raw = "";
 
-        var requestOptions = {
-        method: 'GET',
-        body: raw,
-        redirect: 'follow'
-        };
+        // var requestOptions = {
+        // method: 'GET',
+        // body: raw,
+        // redirect: 'follow'
+        // };
 
-        fetch("https://api.arasaac.org/api/pictograms/es/search/dientes", requestOptions)
-        .then(response => response.json())
+        fetch("https://api.arasaac.org/api/pictograms/es/search/dientes", {method: 'GET'})
+        .then(response => console.log(response))
         .then(result => setResult(result))
         .catch(error => console.log('error', error));
-        console.log(result)
+        console.log(result._id)
     }
 
     return (
         <>
             <div className="container text-center mt-5">
                 <div className="col-3">
-                    <form className="d-flex" role="search">
+                    <div className="d-flex" role="search">
                         <input className="form-control me-2" type="search" placeholder="Buscar pictograma" aria-label="Search" onChange={(event) => setBuscar(event.target.value)}></input>
-                        <button className="btn btn-outline-success" onClick={busqueda}>Buscar</button>
-                    </form>
+                        <button className="btn btn-outline-success" onClick={() =>busqueda()}>Buscar</button>
+                    </div>
                     <p>{result?.created}</p>
                 </div>
             </div>
