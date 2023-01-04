@@ -30,7 +30,11 @@ export const Pictogramas = (props) => {
                         return (
                             <CardPictogramas
                             imagen={"https://static.arasaac.org/pictograms/"+(element._id)+"/"+(element._id)+"_300.png"}
-                            />
+                            descripcion={element.keywords?.map((keyword) => {
+                                return keyword.keyword
+                                }
+                                )}
+                            />                            
                         )
                     })}
                     

@@ -11,8 +11,7 @@ export const CardPictogramas = (props) => {
               <Link to= "/pictogramas"><img src = {props.imagen}/></Link>
             </figure>
             <div className ="contenido">
-              {/* <p>{props.descripcion}</p>            */}
-              <button>Seleccionar</button>
+              <p>{props.descripcion}</p>
             </div>
           </div>
         </div>
