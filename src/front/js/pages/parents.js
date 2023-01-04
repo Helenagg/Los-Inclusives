@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { CardPictogramas } from "../component/cardPictogramas";
 
 import { Context } from "../store/appContext";
@@ -8,6 +8,7 @@ export const Parents = () => {
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const navigate = useNavigate;
+  
   useEffect(() => {
     var myHeaders = new Headers();
     myHeaders.append(
@@ -211,17 +212,17 @@ export const Parents = () => {
           </div>
           <div className="momentoDia" style={{ paddingLeft: "30px" }}>
             <div className="mañanas">
-              <div to="/pictogramas">
+              <div to= "/pictogramas">
                 <CardPictogramas descripcion="Mañana" />
               </div>
             </div>
             <div className="tardes">
-              <div to="/pictogramas">
+              <div to= "/pictogramas">
                 <CardPictogramas descripcion="Tarde" />
               </div>
-            </div>
+            </div >
             <div className="noches">
-              <div to="/pictogramas">
+              <div to= "/pictogramas">
                 <CardPictogramas descripcion="Noche" />
               </div>
             </div>

@@ -14,7 +14,7 @@
 
 .cardPictogramas .card {
   width: 180px;
-  height: 180px;
+  height: auto;
   margin: 10px;
   border-radius: 6px;
   overflow: hidden;
