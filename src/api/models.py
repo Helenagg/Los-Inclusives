@@ -84,22 +84,22 @@ class Agenda ( db.Model):
     momentos_del_dia = db.Column ( db.String(200), nullable = False)
     nombre = db.Column (db.String(80), nullable=False)
     apellidos = db.Column (db.String(80), nullable=False)
-    pictogramas_id = db.Column (db.Integer, db.ForeignKey("pictogramas.id"))
+    pictogramas_url = db.Column (db.String, db.ForeignKey("pictogramas.url"))
     pictogramas = db.relationship ("Pictogramas")
 
 
-def __repr__(self):
+    def __repr__(self):
         return f'<Agenda {self.id}>'
 
-def serialize(self):
-    return {
-        "id": self.id,
-        "dias_semana" : self.dias_semana,
-        "momentos_del_dia" : self.momentos_del_dia,
-        "nombre": self.nombre,
-        "apellidos": self.apellidos
-    
-    }
+    def serialize(self):
+        return {
+            "id": self.id,
+            "dias_semana" : self.dias_semana,
+            "momentos_del_dia" : self.momentos_del_dia,
+            "nombre": self.nombre,
+            "apellidos": self.apellidos,
+            "pictogramas_url": self.pictogramas_url
+        }
 
 # class Mensajeria (db.Model): 
 #     id = db.Column ( db.Integer, primary_key = True)
