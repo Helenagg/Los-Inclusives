@@ -84,7 +84,7 @@ class Agenda ( db.Model):
     momentos_del_dia = db.Column ( db.String(200), nullable = False)
     nombre = db.Column (db.String(80), nullable=False)
     apellidos = db.Column (db.String(80), nullable=False)
-    pictogramas_url = db.Column (db.String, db.ForeignKey("pictogramas.url"))
+    pictogramas_id = db.Column (db.Integer, db.ForeignKey("pictogramas.id"))
     pictogramas = db.relationship ("Pictogramas")
 
 
@@ -98,7 +98,7 @@ class Agenda ( db.Model):
             "momentos_del_dia" : self.momentos_del_dia,
             "nombre": self.nombre,
             "apellidos": self.apellidos,
-            "pictogramas_url": self.pictogramas_url
+            "pictogramas_id": self.pictogramas_id
         }
 
 # class Mensajeria (db.Model): 
