@@ -47,7 +47,7 @@ export const Pictogramas = (props) => {
       redirect: 'follow'
     };
 
-    fetch("https://3001-helenagg-losinclusives-13ek3qbc41f.ws-eu81.gitpod.io/api/pictogramas", requestOptions)
+    fetch("https://3001-helenagg-losinclusives-ka2be1of81h.ws-eu81.gitpod.io/api/pictogramas", requestOptions)
       .then(response => response.json())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
@@ -69,19 +69,25 @@ export const Pictogramas = (props) => {
             </div>
             {result.map((element) => {
               return (
-                  <CardPictogramas
-                  imagen={"https://static.arasaac.org/pictograms/"+element._id+"/"+element._id+"_300.png"}
-                  descripcion={
-                    <>
-                      <p><button className="btn btn-outline-success" onClick={()=>seleccionar("https://static.arasaac.org/pictograms/"+element._id+"/"+element._id+"_300.png")}><Link to={"/parents"}>Seleccionar</Link></button></p>
-                      {element.keywords?.map((keyword) => {
-                        return (                   
-                            <p>{keyword.keyword}</p>
-                        );
-                      })}
-                    </>
-                  }
-                />
+                <>
+                  <div className="container d-flex">
+                    <div className="row">
+                      <CardPictogramas
+                      imagen={"https://static.arasaac.org/pictograms/"+element._id+"/"+element._id+"_300.png"}
+                      descripcion={
+                        <>
+                          <p><Link to={"/parents"} style={{textDecoration:"none", border:0}}><button className="btn btn-outline-success" onClick={()=>seleccionar("https://static.arasaac.org/pictograms/"+element._id+"/"+element._id+"_300.png")}>Seleccionar</button></Link></p>
+                          {element.keywords?.map((keyword) => {
+                            return (                   
+                                <p>{keyword.keyword}</p>
+                            );
+                          })}
+                        </>
+                      }
+                      />
+                    </div> 
+                  </div>
+                </>
               );
             })}
           </div>

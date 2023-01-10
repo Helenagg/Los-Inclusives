@@ -11,6 +11,7 @@ import { Single } from "./pages/single";
 import { Signup } from "./pages/signup";
 import { TablaJuejos } from "./pages/tablaJuegos";
 import { ModificarAgenda } from "./pages/modificarAgenda";
+import { Ayuda } from "./pages/ayuda";
 import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -35,6 +36,7 @@ const Layout = () => {
             <Route element={<Agenda/>} path="/agenda"/>
             <Route element={<Pictogramas/>} path="/pictogramas" />
             <Route element={<TablaJuejos/>} path="/juegos" />
+            <Route element={<Ayuda/>} path="/ayuda" />
             <Route element={<Single/>} path="/single/:theid" />
             <Route element={<Signup />} path="/signup" />
             <Route element={<h1>Not found!</h1>} />
