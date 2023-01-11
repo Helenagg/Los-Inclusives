@@ -69,11 +69,13 @@ export const Parents = () => {
   const seleccionar = (url) => {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-    
+
     var raw = JSON.stringify({
-      "categoria": buscar,
-      "descripcion": "pictograma",
-      "url": url
+      "dias_semana": dias_semana,
+      "momentos_del_dia": momentos_del_dia,
+      "nombre": name,
+      "apellidos": surname,
+      "urlP": url
     });
 
     var requestOptions = {
