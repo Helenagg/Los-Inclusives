@@ -127,8 +127,14 @@ def crear_pictograma():
     }
     return jsonify(response_body)
     
+#  Get para mostrar la agenda en la vista del niño.
+#  ------------------------------------------------
 
+@api.route('/agenda', methods=['GET'])
+def mostrarAgenda():
 
-
-
-
+    agendaAll = Agenda.query.all ()
+    resultado = []
+    resultado = [agenda.serialize () for agenda in agendaAll]
+    return jsonify(resultado),200
+   
