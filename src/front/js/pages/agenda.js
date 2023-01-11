@@ -1,19 +1,31 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { CardPictogramas } from "../component/cardPictogramas";
 import { Link } from "react-router-dom";
 
 export const Agenda = () => {
+  const [result, setResult] = useState([]);
+  useEffect(() => {
+    //Runs only on the first render
+ 
+      fetch(
+        "https://3001-helenagg-losinclusives-ym4j3nyxhzy.ws-eu81.gitpod.io/api/agenda"
+      )
+        .then((response) => response.json())
+        .then((result) => setResult(result))
+        .catch((error) => console.log("error", error)); 
+  }, []);
+  console.log (result)
   return (
     <>
       <ul
-        class="nav nav-tabs container-fluid"
+        className="nav nav-tabs container-fluid"
         id="myTab"
         role="tablist"
         style={{ width: "fit-content" }}
       >
-        <li class="nav-item " role="presentation">
+        <li className="nav-item " role="presentation">
           <button
-            class="nav-link active"
+            className="nav-link active"
             id="home-tab"
             data-bs-toggle="tab"
             data-bs-target="#lunes"
@@ -25,9 +37,9 @@ export const Agenda = () => {
             Lunes
           </button>
         </li>
-        <li class="nav-item" role="presentation">
+        <li className="nav-item" role="presentation">
           <button
-            class="nav-link"
+            className="nav-link"
             id="profile-tab"
             data-bs-toggle="tab"
             data-bs-target="#martes"
@@ -39,9 +51,9 @@ export const Agenda = () => {
             Martes
           </button>
         </li>
-        <li class="nav-item" role="presentation">
+        <li className="nav-item" role="presentation">
           <button
-            class="nav-link"
+            className="nav-link"
             id="contact-tab"
             data-bs-toggle="tab"
             data-bs-target="#miercoles"
@@ -53,9 +65,9 @@ export const Agenda = () => {
             Miercoles
           </button>
         </li>
-        <li class="nav-item" role="presentation">
+        <li className="nav-item" role="presentation">
           <button
-            class="nav-link"
+            className="nav-link"
             id="contact-tab"
             data-bs-toggle="tab"
             data-bs-target="#jueves"
@@ -67,9 +79,9 @@ export const Agenda = () => {
             Jueves
           </button>
         </li>{" "}
-        <li class="nav-item" role="presentation">
+        <li className="nav-item" role="presentation">
           <button
-            class="nav-link"
+            className="nav-link"
             id="contact-tab"
             data-bs-toggle="tab"
             data-bs-target="#viernes"
@@ -81,9 +93,9 @@ export const Agenda = () => {
             Viernes
           </button>
         </li>{" "}
-        <li class="nav-item" role="presentation">
+        <li className="nav-item" role="presentation">
           <button
-            class="nav-link"
+            className="nav-link"
             id="contact-tab"
             data-bs-toggle="tab"
             data-bs-target="#sabado"
@@ -95,9 +107,9 @@ export const Agenda = () => {
             Sabado
           </button>
         </li>{" "}
-        <li class="nav-item" role="presentation">
+        <li className="nav-item" role="presentation">
           <button
-            class="nav-link"
+            className="nav-link"
             id="contact-tab"
             data-bs-toggle="tab"
             data-bs-target="#domingo"
@@ -110,15 +122,15 @@ export const Agenda = () => {
           </button>
         </li>
       </ul>
-      <div class="tab-content" id="myTabContent">
+      <div className="tab-content" id="myTabContent">
         <div
-          class="tab-pane fade show active"
+          className="tab-pane fade show active"
           id="lunes"
           role="tabpanel"
           aria-labelledby="home-tab"
         >
           <div className="diaSemana" style={{ paddingLeft: "40px" }}>
-            <i class="far fa-calendar"> Lunes</i>
+            <i className="far fa-calendar"> Lunes</i>
           </div>
           <div className="momentoDia" style={{ paddingLeft: "30px" }}>
             <div className="mañanas">
@@ -133,13 +145,13 @@ export const Agenda = () => {
           </div>
         </div>
         <div
-          class="tab-pane fade"
+          className="tab-pane fade"
           id="martes"
           role="tabpanel"
           aria-labelledby="profile-tab"
         >
           <div className="diaSemana" style={{ paddingLeft: "40px" }}>
-            <i class="far fa-calendar"> Martes</i>
+            <i className="far fa-calendar"> Martes</i>
           </div>
           <div className="momentoDia" style={{ paddingLeft: "30px" }}>
             <div className="mañanas">
@@ -154,13 +166,13 @@ export const Agenda = () => {
           </div>
         </div>
         <div
-          class="tab-pane fade"
+          className="tab-pane fade"
           id="miercoles"
           role="tabpanel"
           aria-labelledby="contact-tab"
         >
           <div className="diaSemana" style={{ paddingLeft: "40px" }}>
-            <i class="far fa-calendar"> Miercoles</i>
+            <i className="far fa-calendar"> Miercoles</i>
           </div>
           <div className="momentoDia" style={{ paddingLeft: "30px" }}>
             <div className="mañanas">
@@ -175,13 +187,13 @@ export const Agenda = () => {
           </div>
         </div>
         <div
-          class="tab-pane fade"
+          className="tab-pane fade"
           id="jueves"
           role="tabpanel"
           aria-labelledby="contact-tab"
         >
           <div className="diaSemana" style={{ paddingLeft: "40px" }}>
-            <i class="far fa-calendar"> Jueves</i>
+            <i className="far fa-calendar"> Jueves</i>
           </div>
           <div className="momentoDia" style={{ paddingLeft: "30px" }}>
             <div className="mañanas">
@@ -196,13 +208,13 @@ export const Agenda = () => {
           </div>
         </div>
         <div
-          class="tab-pane fade"
+          className="tab-pane fade"
           id="viernes"
           role="tabpanel"
           aria-labelledby="contact-tab"
         >
           <div className="diaSemana" style={{ paddingLeft: "40px" }}>
-            <i class="far fa-calendar"> Viernes</i>
+            <i className="far fa-calendar"> Viernes</i>
           </div>
           <div className="momentoDia" style={{ paddingLeft: "30px" }}>
             <div className="mañanas">
@@ -217,13 +229,13 @@ export const Agenda = () => {
           </div>
         </div>
         <div
-          class="tab-pane fade"
+          className="tab-pane fade"
           id="sabado"
           role="tabpanel"
           aria-labelledby="contact-tab"
         >
           <div className="diaSemana" style={{ paddingLeft: "40px" }}>
-            <i class="far fa-calendar"> Sabado</i>
+            <i className="far fa-calendar"> Sabado</i>
           </div>
           <div className="momentoDia" style={{ paddingLeft: "30px" }}>
             <div className="mañanas">
@@ -238,13 +250,13 @@ export const Agenda = () => {
           </div>
         </div>
         <div
-          class="tab-pane fade"
+          className="tab-pane fade"
           id="domingo"
           role="tabpanel"
           aria-labelledby="contact-tab"
         >
           <div className="diaSemana" style={{ paddingLeft: "40px" }}>
-            <i class="far fa-calendar"> Domingo</i>
+            <i className="far fa-calendar"> Domingo</i>
           </div>
           <div className="momentoDia" style={{ paddingLeft: "30px" }}>
             <div className="mañanas">

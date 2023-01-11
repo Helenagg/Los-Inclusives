@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint, json
-from api.models import db, User, Agenda
+from api.models import db, User, Agenda,  Pictogramas
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
@@ -111,8 +111,14 @@ def borrar_agenda():
    return jsonify(agenda), 200
 
     
+#  Get para mostrar la agenda en la vista del niño.
+#  ------------------------------------------------
 
+@api.route('/agenda', methods=['GET'])
+def mostrarAgenda():
 
-
-
-
+    agendaAll = Agenda.query.all ()
+    resultado = []
+    resultado = [agenda.serialize () for agenda in agendaAll]
+    return jsonify(resultado),200
+   
