@@ -37,14 +37,14 @@ export const Home = () => {
 	  };
   
 	  fetch(
-		"https://3001-helenagg-losinclusives-13ek3qbc41f.ws-eu80.gitpod.io/api/login",
+		"https://3001-helenagg-losinclusives-riklvtx64l2.ws-eu82.gitpod.io/api/login",
 		requestOptions
 	  )
 		.then((response) => response.json())
 		.then((result) => {
 		  if (result.token) {
 			localStorage.setItem("token", result.token);
-			navigate("/demo");
+			navigate("/parents");
 		  } else {
 			setError(result.msg);
 		  }

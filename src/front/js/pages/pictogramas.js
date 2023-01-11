@@ -16,15 +16,15 @@ export const Pictogramas = (props) => {
       method: "GET",
     })
       .then((response) => response.json())
-      .then((result) => setResult(result))
-      //   if (!result === null) {setResult(result)
-      // } 
-      // else {
-      //   setError(error)}})
-
-       // Crear alerta de error si la palabra no es encontrada
-       // Se ha creado un useState error línea 11
-       //Se muestra en el DIV de la línea 87-89 ahora comentada
+      .then((result) => { 
+        setResult(result)
+        console.log("resultado", result, result.length > 0)
+        if (result.length > 0) {          
+          setError("")
+        } 
+        else {          
+          setError("No hay pictogramas con esta palabra, inténtalo con otra")}})
+       
       .catch((error) => console.log("error", error));
     
   };
@@ -47,7 +47,7 @@ export const Pictogramas = (props) => {
       redirect: 'follow'
     };
 
-    fetch("https://3001-helenagg-losinclusives-ka2be1of81h.ws-eu81.gitpod.io/api/pictogramas", requestOptions)
+    fetch("https://3001-helenagg-losinclusives-riklvtx64l2.ws-eu82.gitpod.io/api/pictogramas", requestOptions)
       .then(response => response.json())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
@@ -84,16 +84,17 @@ export const Pictogramas = (props) => {
                           })}
                         </>
                       }
-                      />
+                      />  
                     </div> 
                   </div>
                 </>
               );
             })}
-          </div>
-          {/* {error && <div class="alert alert-danger" role="alert">
-				  {error}
-				</div>} */}
+            <div>
+              {error && <div className="alert alert-danger" role="alert">
+                      {error} </div>}
+            </div>
+          </div>    
         </div>
       </div>
     </>
