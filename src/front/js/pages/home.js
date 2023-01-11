@@ -63,7 +63,7 @@ export const Home = () => {
 						<input className="form-control mb-3 border border-success" placeholder="Email" onChange={(event) => setEmail(event.target.value)}></input>
 						<input className="form-control mb-3 border border-success" placeholder="Contraseña" onChange={(event) => setPassword(event.target.value)}></input>
 						<button className="btn btn-outline-success m-3" onClick={login}>Login</button>
-						<button className="btn btn-outline-success"><Link to={"/signup"} style={{textDecoration: 'none', color: 'green'}}>Registro</Link></button>
+						<button className="btn btn-outline-success"><Link to={"/signup/"} style={{textDecoration: 'none', color: 'green'}}>Registro</Link></button>
 						{error && (
 							<div className="alert alert-danger" role="alert">
 							{error}

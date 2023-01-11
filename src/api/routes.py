@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint, json
-from api.models import db, User, Agenda,  Pictogramas
+from api.models import db, User, Agenda, Pictogramas
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
@@ -110,6 +110,22 @@ def borrar_agenda():
    },
    return jsonify(agenda), 200
 
+@api.route("/pictogramas", methods=["POST"])
+def crear_pictograma():
+    data = request.data
+    data = json.loads (data)
+
+    pictograma = Pictogramas(
+    categoria = data["categoria"], 
+    descripcion = data["descripcion"],
+    url = data ["url"])
+    db.session.add(pictograma)
+    db.session.commit()
+
+    response_body = {
+    "message": "Picrograma añadido"
+    }
+    return jsonify(response_body)
     
 #  Get para mostrar la agenda en la vista del niño.
 #  ------------------------------------------------
