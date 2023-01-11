@@ -25,11 +25,11 @@ def signup():
     apellidos = data["apellidos"],
     telefono = data["telefono"],
     direccion = data["direccion"])
-    user =  User.query.filter_by(email=email).first()
+    # user =  User.query.filter_by(email=email).first()
     db.session.add(user)
     db.session.commit()
-    if user == None:
-       return jsonify ({"msg": "El usuario ya existe"}),401
+    # if user == None:
+    #    return jsonify ({"msg": "El usuario ya existe"}),401
     response_body = {
         "message": "Usuario Creado"
     }
@@ -77,7 +77,7 @@ def crear_agenda():
     dias_semana = data["dias_semana"],
     nombre = data ["nombre"],
     apellidos = data ["apellidos"],
-    pictogramas_id = data["pictogramas_id"],)
+    urlP = data["urlP"],)
     db.session.add(agenda)
     db.session.commit()
 
@@ -98,7 +98,7 @@ def borrar_agenda():
    dias_semana = data["dias_semana"],
    nombre = data ["nombre"],
    apellidos = data ["apellidos"],
-   pictogramas_id = data["pictogramas_id"],)
+   urlP = data["urlP"],)
    
    db.session.delete(agenda)
    db.session.commit()
@@ -110,22 +110,23 @@ def borrar_agenda():
    },
    return jsonify(agenda), 200
 
-@api.route("/pictogramas", methods=["POST"])
-def crear_pictograma():
-    data = request.data
-    data = json.loads (data)
 
-    pictograma = Pictogramas(
-    categoria = data["categoria"], 
-    descripcion = data["descripcion"],
-    url = data ["url"])
-    db.session.add(pictograma)
-    db.session.commit()
+# @api.route("/pictogramas", methods=["POST"])
+# def crear_pictograma():
+#     data = request.data
+#     data = json.loads (data)
 
-    response_body = {
-    "message": "Picrograma añadido"
-    }
-    return jsonify(response_body)
+#     pictograma = Agenda(
+#     categoria = data["categoria"], 
+#     descripcion = data["descripcion"],
+#     url = data ["url"])
+#     db.session.add(pictograma)
+#     db.session.commit()
+
+#     response_body = {
+#     "message": "Picrograma añadido"
+#     }
+#     return jsonify(response_body)
     
 #  Get para mostrar la agenda en la vista del niño.
 #  ------------------------------------------------

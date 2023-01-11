@@ -13,7 +13,7 @@ export const Signup = () => {
     const [apellidos, setApellidos] = useState("");
     const [telefono, setTelefono] = useState("");
     const [direccion, setDireccion] = useState("");
-    const [error, setError] = useState("");
+    //const [error, setError] = useState("");
 
     const handleOnChange = () => {
         setIsChecked(!isChecked);
@@ -40,7 +40,7 @@ export const Signup = () => {
         redirect: 'follow'
         };
 
-        fetch("https://3001-helenagg-losinclusives-ome5w3o6m5y.ws-eu80.gitpod.io/api/signup", requestOptions)
+        fetch("https://3001-helenagg-losinclusives-riklvtx64l2.ws-eu82.gitpod.io/api/signup", requestOptions)
         .then(response => response.json())
         .then(result => {
             if(result.message) navigate("/")
