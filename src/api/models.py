@@ -66,6 +66,8 @@ class Pictogramas (db.Model):
     categoria =  db.Column (db.String(250), nullable=False)
     descripcion = db.Column (db.String(250), nullable=False)
     url = db.Column (db.String(200), nullable=False)
+    
+    
 
     def __repr__(self):
         return f'<Pictograma {self.categoria}>'
@@ -74,7 +76,8 @@ class Pictogramas (db.Model):
         return {
             "id": self.id,
             "categoria" : self.categoria,
-            "url" : self.url
+            "url" : self.url,
+    
     
         }
 
@@ -84,8 +87,8 @@ class Agenda ( db.Model):
     momentos_del_dia = db.Column ( db.String(200), nullable = False)
     nombre = db.Column (db.String(80), nullable=False)
     apellidos = db.Column (db.String(80), nullable=False)
-    pictogramas_id = db.Column (db.Integer, db.ForeignKey("pictogramas.id"))
-    pictogramas = db.relationship ("Pictogramas")
+    urlP = db.Column (db.String(200), nullable=False)
+  
 
 
     def __repr__(self):
@@ -98,7 +101,8 @@ class Agenda ( db.Model):
             "momentos_del_dia" : self.momentos_del_dia,
             "nombre": self.nombre,
             "apellidos": self.apellidos,
-            "pictogramas_id": self.pictogramas_id
+            "urlP" : self.urlP
+            
         }
 
 # class Mensajeria (db.Model): 
