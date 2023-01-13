@@ -109,7 +109,7 @@ export const Parents2 = (props) => {
       >
         {dias.map((element) => {
           return (
-            <Dia  dia={element}/>
+            <Dia diaId={`#${element}`} dia={element}/> 
           )
         })}
       </ul>
