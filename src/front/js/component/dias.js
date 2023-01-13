@@ -5,9 +5,9 @@ import "../../styles/cardPictogramas.css";
 export const Dia = (props) => {
     return (
         
-      <li class="nav-item" role="presentation">
+      <li className="nav-item" role="presentation">
         <button
-          class="nav-link"
+          className="nav-link"
           id="contact-tab"
           data-bs-toggle="tab"
           data-bs-target={props.diaId}
