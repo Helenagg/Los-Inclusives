@@ -30,33 +30,7 @@ export const Pictogramas = (props) => {
   };
 
   // enviamos a la tabla Pictogramas el pictograma seleccionado
-  const seleccionar = (url) => {
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-
-    var raw = JSON.stringify({
-      dias_semana: dias_semana,
-      momentos_del_dia: momentos_del_dia,
-      nombre: name,
-      apellidos: surname,
-      urlP: url,
-    });
-
-    var requestOptions = {
-      method: "POST",
-      headers: myHeaders,
-      body: raw,
-      redirect: "follow",
-    };
-
-    fetch(
-      "https://3001-helenagg-losinclusives-mrjvrjgmddp.ws-eu81.gitpod.io/api/agenda",
-      requestOptions
-    )
-      .then((response) => response.json())
-      .then((result) => console.log(result))
-      .catch((error) => console.log("error", error));
-  };
+  
 
   return (
     <>
@@ -98,7 +72,7 @@ export const Pictogramas = (props) => {
                                 <button
                                   className="btn btn-outline-success"
                                   onClick={() =>
-                                    seleccionar(
+                                    props.seleccionar(
                                       "https://static.arasaac.org/pictograms/" +
                                         element._id +
                                         "/" +
