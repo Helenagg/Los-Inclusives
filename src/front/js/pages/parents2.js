@@ -3,14 +3,17 @@ import { useNavigate, Link } from "react-router-dom";
 import { CardPictogramas } from "../component/cardPictogramas";
 import { Pictogramas } from "../component/pictogramas";
 import { Dia2 } from "../component/pruebas";
+import { Dia } from "../component/dias";
 import "../../styles/cardPictogramas.css";
 
 import { Context } from "../store/appContext";
+import { element } from "prop-types";
 
 export const Parents2 = (props) => {
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const navigate = useNavigate;
+  const dias = ["Lunes", "Martes", "Miercoles"]
 
   useEffect(() => {
     var myHeaders = new Headers();
@@ -98,14 +101,18 @@ export const Parents2 = (props) => {
         </ul>
       </div>
       <Pictogramas />
-      <Dia2 dia="Lunes" diaId="lunes" diaCalendar="lunes"/>
-      <Dia2 dia="Martes" diaId="martes" diaCalendar="martes"/>
-      <Dia2 dia="Miercoles" diaId="mierecoles" diaCalendar="miercoles"/>
-      <Dia2 dia="Jueves" diaId="jueves" diaCalendar="jueves"/>
-      <Dia2 dia="Viernes" diaId="viernes" diaCalendar="viernes"/>
-      <Dia2 dia="Sabado" diaId="sabado" diaCalendar="sabado"/>
-      <Dia2 dia="Domingo" diaId="domingo" diaCalendar="domingo"/>
-      
+      <ul
+        class="nav nav-tabs container-fluid"
+        id="myTab"
+        role="tablist"
+        style={{ width: "fit-content" }}
+      >
+        {dias.map((element) => {
+          return (
+            <Dia  dia={element}/>
+          )
+        })}
+      </ul>
     </>
   );
 };

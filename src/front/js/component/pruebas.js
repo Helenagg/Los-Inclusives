@@ -6,20 +6,7 @@ import { CardPictogramas } from "./cardPictogramas";
 export const Dia2 = (props) => {
   return (
     <>
-      <li class="nav-item " role="presentation">
-        <button
-          class="nav-link active"
-          id="home-tab"
-          data-bs-toggle="tab"
-          data-bs-target="#lunes"
-          type="button"
-          role="tab"
-          aria-controls="home"
-          aria-selected="true"
-        >
-          {props.dia}
-        </button>
-      </li>
+      
       <div class="tab-content" id="myTabContent">
         <div
           class="tab-pane fade show active"
