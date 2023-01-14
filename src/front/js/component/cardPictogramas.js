@@ -8,7 +8,7 @@ export const CardPictogramas = (props) => {
         <div className = "cardPictogramas">
           <div className ="card">
             <figure>
-              <Link to= "/pictogramas"><img src = {props.imagen}/></Link>
+              <img src = {props.imagen}/>
             </figure>
             <div className ="contenido">
               <p>{props.descripcion}</p>

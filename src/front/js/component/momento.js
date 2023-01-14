@@ -10,7 +10,7 @@ export const Momento = ({ dia }) => {
     <>
       <div className="momentoDia" style={{ paddingLeft: "30px" }}>
         <div className="mañanas">
-          <div to="/pictogramas">
+          <div>
             {momento.map((element) => {
               return (
                 <CardPictogramas descripcion={element} />
