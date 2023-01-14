@@ -8,30 +8,14 @@ export const Momento = ({ dia }) => {
 
   return (
     <>
-      <div
-        class="tab-pane fade show"
-        id={dia}
-        role="tabpanel"
-        aria-labelledby="home-tab"
-      >
-        <div className="diaSemana" style={{ paddingLeft: "40px" }}>
-          <i class="far fa-calendar"> {dia}</i>
-        </div>
-        <div className="momentoDia" style={{ paddingLeft: "30px" }}>
-          <div className="mañanas">
-            <div to="/pictogramas">
-              <CardPictogramas descripcion="Mañana" />
-            </div>
-          </div>
-          <div className="tardes">
-            <div to="/pictogramas">
-              <CardPictogramas descripcion="Tarde" />
-            </div>
-          </div>
-          <div className="noches">
-            <div to="/pictogramas">
-              <CardPictogramas descripcion="Noche" />
-            </div>
+      <div className="momentoDia" style={{ paddingLeft: "30px" }}>
+        <div className="mañanas">
+          <div to="/pictogramas">
+            {momento.map((element) => {
+              return (
+                <CardPictogramas descripcion={element} />
+              )
+            })}
           </div>
         </div>
       </div>
