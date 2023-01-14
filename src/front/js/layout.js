@@ -6,7 +6,6 @@ import { Home } from "./pages/home";
 import { Parents } from "./pages/parents";
 import { Teacher } from "./pages/teacher";
 import { Agenda } from "./pages/agenda";
-import { Pictogramas } from "./pages/pictogramas";
 import { Single } from "./pages/single";
 import { Signup } from "./pages/signup";
 import { TablaJuejos } from "./pages/tablaJuegos";
@@ -34,7 +33,6 @@ const Layout = () => {
             <Route element={<ModificarAgenda/>} path="/modificaragenda" />
             <Route element={<Teacher/>} path="/teacher" />
             <Route element={<Agenda/>} path="/agenda"/>
-            <Route element={<Pictogramas/>} path="/pictogramas" />
             <Route element={<TablaJuejos/>} path="/juegos" />
             <Route element={<Ayuda/>} path="/ayuda" />
             <Route element={<Single/>} path="/single/:theid" />
