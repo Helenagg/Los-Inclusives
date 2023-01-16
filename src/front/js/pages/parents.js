@@ -111,7 +111,7 @@ export const Parents = (props) => {
       </div>
       <Pictogramas />
       <ul
-        class="nav nav-tabs container-fluid"
+        className="nav nav-tabs container-fluid"
         id="myTab"
         role="tablist"
         style={{ width: "fit-content" }}
@@ -120,10 +120,10 @@ export const Parents = (props) => {
           <Dia diaId={`#${dia}`} dia={dia} />
         ))}
       </ul>
-      <div class="tab-content" id="myTabContent">
+      <div className="tab-content" id="myTabContent">
         {dias.map((dia) => (
           <div
-            class="tab-pane fade show"
+            className="tab-pane fade show"
             id={dia}
             role="tabpanel"
             aria-labelledby="home-tab"
