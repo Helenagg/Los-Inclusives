@@ -59,30 +59,33 @@ export const Parents = (props) => {
   }, []);
 
   // enviamos a la tabla Pictogramas el pictograma seleccionado
- const seleccionar = (url) => {
-  var myHeaders = new Headers();
+  const seleccionar = (url) => {
+    var myHeaders = new Headers();
 
-  myHeaders.append("Content-Type", "application/json");
-  var raw = JSON.stringify({
-    "dias_semana": semana,
-    "momentos_del_dia": momento,
-    "nombre": name,
-    "apellidos": surname,
-    "urlP": url
-  });
+    myHeaders.append("Content-Type", "application/json");
+    var raw = JSON.stringify({
+      dias_semana: semana,
+      momentos_del_dia: momento,
+      nombre: name,
+      apellidos: surname,
+      urlP: url,
+    });
 
-  var requestOptions = {
-    method: 'POST',
-    headers: myHeaders,
-    body: raw,
-    redirect: 'follow'
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch(
+      "https://3001-helenagg-losinclusives-dygfyn8obdf.ws-eu82.gitpod.io/api/agenda",
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
   };
-
-  fetch("https://3001-helenagg-losinclusives-dygfyn8obdf.ws-eu82.gitpod.io/api/agenda", requestOptions)
-  .then(response => response.json())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
-  }
 
   return (
     <>
@@ -155,12 +158,18 @@ export const Parents = (props) => {
             role="tabpanel"
             aria-labelledby="home-tab"
           >
-            <Pictogramas />
+            <Pictogramas 
+              seleccionar={seleccionar}
+            />
             <div className="diaSemana" style={{ paddingLeft: "40px" }}>
               <i class="far fa-calendar"> {dia}</i>
             </div>
-            <Momento dia={dia} setSemana={setSemana} setMomento={setMomento}/>
-            {name}{surname}{momento}{semana}
+            <div className="col-3">
+              <nav className="navbar position-static">
+              <Momento dia={dia} setSemana={setSemana} setMomento={setMomento}/>
+              {name}{surname}{momento}{semana}
+              </nav>
+            </div>
           </div>
         ))}
       </div>

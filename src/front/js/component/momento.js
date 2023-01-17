@@ -13,13 +13,15 @@ export const Momento = ({ dia, setSemana, setMomento }) => {
           <div>
             {momento.map((element) => {
               return (
-                <div onClick={()=> {
-                  setSemana(dia);
-                  setMomento(element)
-                }}>
+                <div
+                  onClick={() => {
+                    setSemana(dia);
+                    setMomento(element);
+                  }}
+                >
                   <CardPictogramas descripcion={element} />
                 </div>
-              )
+              );
             })}
           </div>
         </div>
