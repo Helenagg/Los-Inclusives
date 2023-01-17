@@ -30,7 +30,6 @@ export const Pictogramas = (props) => {
   };
 
   // enviamos a la tabla Pictogramas el pictograma seleccionado
-  
 
   return (
     <>
@@ -49,61 +48,61 @@ export const Pictogramas = (props) => {
                 Buscar
               </button>
             </div>
+          </div>
+        </div>
+        <div className="container">
+          <div className="row">
             {result.map((element) => {
               return (
                 <>
-                  <div className="container d-flex">
-                    <div className="row">
-                      <CardPictogramas
-                        imagen={
-                          "https://static.arasaac.org/pictograms/" +
-                          element._id +
-                          "/" +
-                          element._id +
-                          "_300.png"
-                        }
-                        descripcion={
-                          <>
-                            <p>
-                              <Link
-                                to={"/parents"}
-                                style={{ textDecoration: "none", border: 0 }}
-                              >
-                                <button
-                                  className="btn btn-outline-success"
-                                  onClick={() =>
-                                    props.seleccionar(
-                                      "https://static.arasaac.org/pictograms/" +
-                                        element._id +
-                                        "/" +
-                                        element._id +
-                                        "_300.png"
-                                    )
-                                  }
-                                >
-                                  Seleccionar
-                                </button>
-                              </Link>
-                            </p>
-                            {element.keywords?.map((keyword) => {
-                              return <p>{keyword.keyword}</p>;
-                            })}
-                          </>
-                        }
-                      />
-                    </div>
-                  </div>
+                  <CardPictogramas
+                    imagen={
+                      "https://static.arasaac.org/pictograms/" +
+                      element._id +
+                      "/" +
+                      element._id +
+                      "_300.png"
+                    }
+                    descripcion={
+                      <>
+                        <p>
+                          <Link
+                            to={"/parents"}
+                            style={{ textDecoration: "none", border: 0 }}
+                          >
+                            <button
+                              className="btn btn-outline-success"
+                              onClick={() =>
+                                props.seleccionar(
+                                  "https://static.arasaac.org/pictograms/" +
+                                    element._id +
+                                    "/" +
+                                    element._id +
+                                    "_300.png"
+                                )
+                              }
+                            >
+                              Seleccionar
+                            </button>
+                          </Link>
+                        </p>
+                        {element.keywords?.map((keyword) => {
+                          return <p>{keyword.keyword}</p>;
+                        })}
+                      </>
+                    }
+                  />
                 </>
               );
             })}
-            <div>
-              {error && (
-                <div className="alert alert-danger" role="alert">
-                  {error}{" "}
-                </div>
-              )}
-            </div>
           </div>
+        </div>
+        <div>
+          {error && (
+            <div className="alert alert-danger" role="alert">
+              {error}{" "}
+            </div>
+          )}
         </div>
       </div>
     </>

@@ -13,7 +13,8 @@ export const Parents = (props) => {
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const navigate = useNavigate;
-  const [dia, setDia] = useState("");
+  const [semana, setSemana] = useState("");
+  const [momento, setMomento] = useState("");
   const dias = [
     "Lunes",
     "Martes",
@@ -56,6 +57,35 @@ export const Parents = (props) => {
       })
       .catch((error) => console.log("error", error));
   }, []);
+
+  // enviamos a la tabla Pictogramas el pictograma seleccionado
+  const seleccionar = (url) => {
+    var myHeaders = new Headers();
+
+    myHeaders.append("Content-Type", "application/json");
+    var raw = JSON.stringify({
+      dias_semana: semana,
+      momentos_del_dia: momento,
+      nombre: name,
+      apellidos: surname,
+      urlP: url,
+    });
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch(
+      "https://3001-helenagg-losinclusives-dygfyn8obdf.ws-eu82.gitpod.io/api/agenda",
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
+  };
 
   return (
     <>
@@ -104,14 +134,14 @@ export const Parents = (props) => {
         <ul className="dropdown-menu">
           <li>
             <p className="dropdown-item" href="#">
-              Nombre del niñ@ que creemos
+              {name} {surname}
             </p>
           </li>
         </ul>
       </div>
-      <Pictogramas />
+      {/* <Pictogramas /> */}
       <ul
-        class="nav nav-tabs container-fluid"
+        className="nav nav-tabs container-fluid"
         id="myTab"
         role="tablist"
         style={{ width: "fit-content" }}
@@ -120,18 +150,26 @@ export const Parents = (props) => {
           <Dia diaId={`#${dia}`} dia={dia} />
         ))}
       </ul>
-      <div class="tab-content" id="myTabContent">
+      <div className="tab-content" id="myTabContent">
         {dias.map((dia) => (
           <div
-            class="tab-pane fade show"
+            className="tab-pane fade show"
             id={dia}
             role="tabpanel"
             aria-labelledby="home-tab"
           >
+            <Pictogramas 
+              seleccionar={seleccionar}
+            />
             <div className="diaSemana" style={{ paddingLeft: "40px" }}>
               <i class="far fa-calendar"> {dia}</i>
             </div>
-            <Momento/>
+            <div className="col-3">
+              <nav className="navbar position-static">
+              <Momento dia={dia} setSemana={setSemana} setMomento={setMomento}/>
+              {name}{surname}{momento}{semana}
+              </nav>
+            </div>
           </div>
         ))}
       </div>
