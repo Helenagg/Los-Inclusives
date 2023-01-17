@@ -3,7 +3,7 @@ import React from "react";
 import "../../styles/cardPictogramas.css";
 import { CardPictogramas } from "./cardPictogramas";
 
-export const Momento = ({ dia }) => {
+export const Momento = ({ dia, setSemana, setMomento }) => {
   const momento = ["Mañana", "Tarde", "Noche"];
 
   return (
@@ -13,7 +13,12 @@ export const Momento = ({ dia }) => {
           <div>
             {momento.map((element) => {
               return (
-                <CardPictogramas descripcion={element} />
+                <div onClick={()=> {
+                  setSemana(dia);
+                  setMomento(element)
+                }}>
+                  <CardPictogramas descripcion={element} />
+                </div>
               )
             })}
           </div>

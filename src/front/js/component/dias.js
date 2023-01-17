@@ -1,8 +1,11 @@
 import propTypes from "prop-types";
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/cardPictogramas.css";
 
 export const Dia = (props) => {
+  const [elegirDia, setElegirDia] = useState ("");
+  console.log(elegirDia)
+
     return (
         
       <li className="nav-item" role="presentation">

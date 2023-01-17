@@ -52,7 +52,7 @@ export const Pictogramas = (props) => {
             {result.map((element) => {
               return (
                 <>
-                  <div className="container d-flex">
+                  <div className="container">
                     <div className="row">
                       <CardPictogramas
                         imagen={
