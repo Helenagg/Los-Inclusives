@@ -2,6 +2,8 @@ import React, { useContext,useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import background from "../../img/manos.png";
+import { Manos } from "../component/manos"
+import "../../styles/index.css";
 
 import "../../styles/home.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -54,16 +56,16 @@ export const Home = () => {
   
 	return (
 		<>
-			<div className="container text-center mt-5" style={{backgroundImage: `url(${background})`}}>
+			<div className="container text-center mt-5" style={{backgroundImage: "url(../component/manos.js)"}}>
 				<div className="row justify-content-md-center"> 
 					<div className="col-3 border bg-white">
-						<h1 className="text-success">LOGIN</h1>
+						<h1 className="text_azul">LOGIN</h1>
 						<input className="form-check-input m-2" type="checkbox" checked={isChecked} onChange={handleOnChange}></input>
                         <label className="form-check-label">Padre</label>
-						<input className="form-control mb-3 border border-success" placeholder="Email" onChange={(event) => setEmail(event.target.value)}></input>
-						<input className="form-control mb-3 border border-success" placeholder="Contraseña" onChange={(event) => setPassword(event.target.value)}></input>
-						<button className="btn btn-outline-success m-3" onClick={login}>Login</button>
-						<button className="btn btn-outline-success"><Link to={"/signup/"} style={{textDecoration: 'none', color: 'green'}}>Registro</Link></button>
+						<input className="form-control mb-3 border" placeholder="Email" onChange={(event) => setEmail(event.target.value)}></input>
+						<input className="form-control mb-3 border" placeholder="Contraseña" onChange={(event) => setPassword(event.target.value)}></input>
+						<button className="btn m-3" onClick={login}>Login</button>
+						<button className="btn"><Link to={"/signup/"} style={{textDecoration: 'none', color: 'white'}}>Registro</Link></button>
 						{error && (
 							<div className="alert alert-danger" role="alert">
 							{error}
