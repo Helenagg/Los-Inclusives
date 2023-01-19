@@ -3,7 +3,7 @@ import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 // import background from "../../img/manos.png";
 import { Manos } from "../component/manos"
-import background from "../../img/manitas.svg";
+import background from "../../img/manos.png";
 import "../../styles/index.css";
 
 import "../../styles/home.css";
@@ -20,9 +20,9 @@ export const Home = () => {
 	const handleOnChange = () => {
         setIsChecked(!isChecked);
       };
-  
+	console.log(store.user)
 	const login = () => {
-	  console.log(email, password);
+	//   console.log(email, password);
 	  var myHeaders = new Headers();
 	  myHeaders.append("Content-Type", "application/json");
   
@@ -40,13 +40,14 @@ export const Home = () => {
 	  };
   
 	  fetch(
-		"https://3001-helenagg-losinclusives-riklvtx64l2.ws-eu82.gitpod.io/api/login",
+		"https://3001-helenagg-losinclusives-2tjcu1uxh8p.ws-eu82.gitpod.io/api/login",
 		requestOptions
 	  )
 		.then((response) => response.json())
 		.then((result) => {
 		  if (result.token) {
 			localStorage.setItem("token", result.token);
+			actions.setUser(result.user);
 			navigate("/parents");
 		  } else {
 			setError(result.msg);
@@ -57,7 +58,7 @@ export const Home = () => {
   
 	return (
 		<>
-			<div className="container text-center mt-5" style={{backgroundImage: `url(${background})`}}>
+			<div className="container-fluid text-center mt-5 alto" style={{backgroundImage: `url(${background})`}}>
 				<div className="row justify-content-md-center"> 
 					<div className="col-3 border bg-white">
 						<h1 className="text_azul">LOGIN</h1>
