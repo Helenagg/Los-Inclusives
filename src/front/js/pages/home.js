@@ -1,8 +1,9 @@
 import React, { useContext,useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
-import background from "../../img/manos.png";
+// import background from "../../img/manos.png";
 import { Manos } from "../component/manos"
+import background from "../../img/manitas.svg";
 import "../../styles/index.css";
 
 import "../../styles/home.css";
@@ -56,7 +57,7 @@ export const Home = () => {
   
 	return (
 		<>
-			<div className="container text-center mt-5" style={{backgroundImage: "url(../component/manos.js)"}}>
+			<div className="container text-center mt-5" style={{backgroundImage: `url(${background})`}}>
 				<div className="row justify-content-md-center"> 
 					<div className="col-3 border bg-white">
 						<h1 className="text_azul">LOGIN</h1>

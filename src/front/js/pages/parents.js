@@ -92,7 +92,7 @@ export const Parents = (props) => {
       <div className="mt-3 btn-group">
         <button
           type="button"
-          className="ms-5 btn btn-success dropdown-toggle"
+          className="ms-5 btn dropdown-toggle"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
@@ -103,7 +103,7 @@ export const Parents = (props) => {
             <p className="dropdown-item" href="#">
               Nombre :{" "}
               <input
-                className="form-control mb-1 border border-success"
+                className="form-control mb-1 border"
                 placeholder="Name"
                 onChange={(event) => setName(event.target.value)}
               ></input>
@@ -113,7 +113,7 @@ export const Parents = (props) => {
             <p className="dropdown-item" href="#">
               Apellidos :{" "}
               <input
-                className="form-control mb-1 border border-success"
+                className="form-control mb-1 border"
                 placeholder="Surname"
                 onChange={(event) => setSurname(event.target.value)}
               ></input>
@@ -152,25 +152,30 @@ export const Parents = (props) => {
       </ul>
       <div className="tab-content" id="myTabContent">
         {dias.map((dia) => (
-          <div
-            className="tab-pane fade show"
-            id={dia}
-            role="tabpanel"
-            aria-labelledby="home-tab"
-          >
-            <Pictogramas 
-              seleccionar={seleccionar}
-            />
-            <div className="diaSemana" style={{ paddingLeft: "40px" }}>
-              <i class="far fa-calendar"> {dia}</i>
+          
+            <div
+              className="tab-pane fade show"
+              id={dia}
+              role="tabpanel"
+              aria-labelledby="home-tab"
+            >
+            <div className="row justify-content-start mt-3">
+              <div className="col-3">
+                <nav className="navbar position-static">
+                  <div className="diaSemana" style={{ paddingLeft: "40px" }}>
+                    <i class="far fa-calendar"> {dia}</i>
+                    <Momento dia={dia} setSemana={setSemana} setMomento={setMomento}/>
+                    {name}{surname}{momento}{semana}
+                  </div>
+                </nav>
+              </div>
+              <div className="col-8">
+                <Pictogramas 
+                  seleccionar={seleccionar}
+                />
+              </div>
             </div>
-            <div className="col-3">
-              <nav className="navbar position-static">
-              <Momento dia={dia} setSemana={setSemana} setMomento={setMomento}/>
-              {name}{surname}{momento}{semana}
-              </nav>
-            </div>
-          </div>
+          </div>  
         ))}
       </div>
     </>
