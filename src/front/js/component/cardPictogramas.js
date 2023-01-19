@@ -5,10 +5,10 @@ import "../../styles/cardPictogramas.css"
 export const CardPictogramas = (props) => {
 
     return (
-        <div className = "cardPictogramas">
+        <div className = "cardPictogramas" key={props.Key}>
           <div className ="card">
             <figure>
-              <Link to= "/pictogramas"><img src = {props.imagen}/></Link>
+              <img src = {props.imagen}/>
             </figure>
             <div className ="contenido">
               <p>{props.descripcion}</p>

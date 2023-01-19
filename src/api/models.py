@@ -81,15 +81,31 @@ class Pictogramas (db.Model):
     
         }
 
+# class Namepicto(db.Model):
+#     id = db.Column ( db.Integer, primary_key = True)
+#     nombre = db.Column (db.String(80), nullable=False)
+#     apellidos = db.Column (db.String(80), nullable=False)
+
+
+#     def __repr__(self):
+#         return f'<Namepicto {self.id}>'
+
+#     def serialize(self):
+#         return {
+#             "id": self.id,
+#             "nombre": self.nombre,
+#             "apellidos": self.apellidos,
+#         }
+
 class Agenda ( db.Model):
     id = db.Column ( db.Integer, primary_key = True)
     dias_semana = db.Column (db.String(200), nullable= False)
     momentos_del_dia = db.Column ( db.String(200), nullable = False)
-    nombre = db.Column (db.String(80), nullable=False)
+    nombre = db.Column (db.String(80), nullable=False)    # Nombre y apellido aqui ya no harian falta
     apellidos = db.Column (db.String(80), nullable=False)
     urlP = db.Column (db.String(200), nullable=False)
-  
-
+    #name_picto_id = db.Column (db.Integer, db.ForeignKey("agenda.id"))
+    #relathionship
 
     def __repr__(self):
         return f'<Agenda {self.id}>'
@@ -101,7 +117,8 @@ class Agenda ( db.Model):
             "momentos_del_dia" : self.momentos_del_dia,
             "nombre": self.nombre,
             "apellidos": self.apellidos,
-            "urlP" : self.urlP
+            "urlP" : self.urlP,
+            # "name_picto": self.relathionship
             
         }
 
