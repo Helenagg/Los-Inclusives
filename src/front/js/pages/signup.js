@@ -53,7 +53,7 @@ export const Signup = () => {
             <div className="container text-center mt-5">
                 <h1 className="text_azul">REGISTRO</h1>
                 <div className="row justify-content-md-center">
-                    <div className="col-3">
+                    <div className="col-3 p-3 border bg-white">
                         <input className="form-check-input m-2" type="checkbox" checked={isChecked} onChange={handleOnChange}></input>
                         <label className="form-check-label">Padre</label>
                         <input className="form-control mb-3 border" placeholder="Nombre" onChange={(event) => setNombre(event.target.value)}></input>

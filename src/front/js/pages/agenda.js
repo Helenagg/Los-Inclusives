@@ -271,7 +271,7 @@
            </div>
          </div>
          <div className="botonJuego">
-           <Link className="btn btn-outline-success m-3" to="/juegos">
+           <Link className="btn btn-outline text-white border m-3" to="/juegos">
             Te lo ganaste
           </Link>
         </div>
