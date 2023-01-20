@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../../styles/cardPictogramas.css"
+import "../../styles/cardPictogramas.css";
 
 export const CardPictogramas = (props) => {
 
@@ -15,7 +15,7 @@ export const CardPictogramas = (props) => {
             </div>
           </div>
         </div>
-       
-    
-    )
-}
+      </div>
+    </div>
+  );
+};

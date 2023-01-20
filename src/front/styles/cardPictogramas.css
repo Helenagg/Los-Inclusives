@@ -10,8 +10,6 @@
     font-family: sans-serif;
   } */
 
- 
-
 .cardPictogramas .card {
   width: 180px;
   height: auto;
@@ -29,7 +27,7 @@
 }
 
 .cardPictogramas .card img {
-  width: 100%;
+  /* width: 100%; */
   height: 130px;
 }
 
@@ -74,4 +72,3 @@
   border-radius: 4px;
   transition: all 400ms ease;
 }
-
