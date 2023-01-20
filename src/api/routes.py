@@ -169,9 +169,17 @@ def get_usuarios():
 
     
     
-@api.route('<string:dia_var>/<string:nombre_var>/<string:momento_var>', methods=['GET'])
-def get_momentos(nombre_var, momento_var, dia_var):
-    Pictos = Agenda.query.filter_by(nombre = nombre_var, momentos_del_dia = momento_var, dias_semana=dia_var).all()
-    pictos_list = [x.urlP for x in Pictos]
-    return jsonify(pictos_list), 200
-
+@api.route('<string:dia_var>/<string:nombre_var>/<string:apellidos_var>/', methods=['GET'])
+def get_momentos(nombre_var, apellidos_var, dia_var):
+    Pictos = Agenda.query.filter_by(nombre = nombre_var, apellidos = apellidos_var, dias_semana=dia_var).all()
+    pictos_mañana = []
+    pictos_tarde = []
+    pictos_noche = []
+    for x in Pictos:
+        if x.momentos_del_dia == "Mañana":
+            pictos_mañana.append(x.urlP)
+        elif x.momentos_del_dia == "Tarde":
+            pictos_tarde.append(x.urlP)
+        elif x.momentos_del_dia == "Noche":
+            pictos_noche.append(x.urlP)
+    return jsonify({"mañana": pictos_mañana, "tarde": pictos_tarde, "noche": pictos_noche}), 200

@@ -3,22 +3,12 @@ import React from "react";
 import "../../styles/cardPictogramas.css";
 import { CardPictogramas } from "./cardPictogramas";
 
-export const Momento = ({ dia }) => {
+export const Momento = ({ dia, momentoIndex }) => {
   const momento = ["Mañana", "Tarde", "Noche"];
 
   return (
-    <>
-      <div className="momentoDia" style={{ paddingLeft: "30px" }}>
-        <div className="mañanas">
-          <div to="/pictogramas">
-            {momento.map((element) => {
-              return (
-                <CardPictogramas descripcion={element} />
-              )
-            })}
-          </div>
-        </div>
-      </div>
-    </>
+    <div>
+     {momentoIndex ? <CardPictogramas descripcion={momento[momentoIndex]} /> : <h1>Se te ha olvidado la prop</h1>}
+    </div>
   );
 };

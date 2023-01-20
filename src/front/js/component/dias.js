@@ -4,7 +4,7 @@ import "../../styles/cardPictogramas.css";
 
 export const Dia = (props) => {
     return (
-        
+
       <li className="nav-item" role="presentation">
         <button
           className="nav-link"
@@ -15,6 +15,7 @@ export const Dia = (props) => {
           role="tab"
           aria-controls="contact"
           aria-selected="false"
+          onClick={props.Onclick}
         >
           {props.dia}
         </button>
