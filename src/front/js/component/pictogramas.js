@@ -9,6 +9,7 @@ export const Pictogramas = (props) => {
   const [buscar, setBuscar] = useState("");
   const [result, setResult] = useState([]);
   const [error, setError] = useState("");
+  const [count, setCount] = useState(0);
 
   // realizamos búsqueda de todos los pictogramas
   const busqueda = () => {
@@ -27,6 +28,12 @@ export const Pictogramas = (props) => {
       })
 
       .catch((error) => console.log("error", error));
+  };
+  const handleIncrement = () => {
+    setCount((count) => count + 1);
+  };
+  const handleDecrement = () => {
+    setCount((count) => count - 1);
   };
 
   // enviamos a la tabla Pictogramas el pictograma seleccionado
@@ -72,17 +79,33 @@ export const Pictogramas = (props) => {
                           >
                             <button
                               className="btn btn-outline-success"
-                              onClick={() =>
+                              onClick={() => {
                                 props.seleccionar(
                                   "https://static.arasaac.org/pictograms/" +
                                     element._id +
                                     "/" +
                                     element._id +
                                     "_300.png"
-                                )
-                              }
+                                );
+                                handleIncrement();
+                              }}
                             >
                               Seleccionar
+                            </button>
+                            <button
+                              className="btn btn-outline-success"
+                              onClick={() => {
+                                props.borrar(
+                                  "https://static.arasaac.org/pictograms/" +
+                                    element._id +
+                                    "/" +
+                                    element._id +
+                                    "_300.png"
+                                );
+                                handleDecrement();
+                              }}
+                            >
+                              Borrar
                             </button>
                           </Link>
                         </p>
@@ -104,6 +127,13 @@ export const Pictogramas = (props) => {
             </div>
           )}
         </div>
+
+        <h5>Pictogramas añadidos: {count}</h5>
+        <p>
+          <Link to="/agenda" className="btn btn-outline-success">
+            Agenda creada!
+          </Link>
+        </p>
       </div>
     </>
   );
