@@ -20,7 +20,7 @@ export const Momento = ({ dia, setSemana, setMomento}) => {
                     setMomento(element);
                   }}
                 >
-                  <CardPictogramas descripcion={element} />
+                  <CardPictogramas descripcion={element}  />
                 </div>
               );
             })}
