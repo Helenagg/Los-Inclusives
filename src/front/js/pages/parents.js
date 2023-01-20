@@ -79,7 +79,32 @@ export const Parents = (props) => {
     };
 
     fetch(
-      "https://3001-helenagg-losinclusives-dygfyn8obdf.ws-eu82.gitpod.io/api/agenda",
+      "https://3001-helenagg-losinclusives-oywbmsh4ij1.ws-eu83.gitpod.io/api/agenda",
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
+  };
+//BORRAR PICTOGRAMAS
+  const borrar = (url) => {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    var raw = JSON.stringify({
+      dias_semana: semana,
+      momentos_del_dia: momento,
+      nombre: name,
+      apellidos: surname,
+      urlP: url,
+    });
+    var requestOptions = {
+      method: "DELETE",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+    fetch(
+      "https://3001-helenagg-losinclusives-oywbmsh4ij1.ws-eu83.gitpod.io/api/agenda",
       requestOptions
     )
       .then((response) => response.json())
@@ -89,6 +114,7 @@ export const Parents = (props) => {
 
   return (
     <>
+      
       <div className="mt-3 btn-group">
         <button
           type="button"
@@ -160,6 +186,7 @@ export const Parents = (props) => {
           >
             <Pictogramas 
               seleccionar={seleccionar}
+              borrar={borrar}
             />
             <div className="diaSemana" style={{ paddingLeft: "40px" }}>
               <i className="far fa-calendar"> {dia}</i>
