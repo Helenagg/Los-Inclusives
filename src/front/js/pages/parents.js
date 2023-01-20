@@ -162,7 +162,7 @@ export const Parents = (props) => {
               seleccionar={seleccionar}
             />
             <div className="diaSemana" style={{ paddingLeft: "40px" }}>
-              <i class="far fa-calendar"> {dia}</i>
+              <i className="far fa-calendar"> {dia}</i>
             </div>
             <div className="col-3">
               <nav className="navbar position-static">

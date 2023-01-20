@@ -41,7 +41,7 @@
   color: #6a6a6a;
 }
 
-/* .card .contenido a {
+.card .contenido a {
     text-decoration: none;
     display: inline-block;
     padding: 10px;
@@ -50,7 +50,7 @@
     border: 1px solid #006400;
     border-radius: 4px;
     transition: all 400ms ease;
-  } */
+  }
 
 .return {
   display: flex;

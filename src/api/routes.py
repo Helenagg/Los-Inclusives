@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint, json
-from api.models import db, User, Agenda, Pictogramas
+from api.models import db, User, Agenda, Pictogramas #, Namepicto
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
@@ -69,13 +69,22 @@ def private():
 
 @api.route("/agenda", methods=["POST"])
 def crear_agenda():
-    data = request.data
-    data = json.loads (data)
+    data = request.json
+    #nombre = data["nombre"]
+    #apellidos = data["apellidos"]
+    #namepicto = Namepicto.query.filter_by(nombre=nombre, apellidos=apellidos).first()
+    #if !namepicto:
+    #   namepicto = Namepicto(
+    #   nombre = data["nombre"],
+    #   apellidos = data["apellidos"])
+    #   db.session.add(namepicto)
+    #   db.session.commit()
+
 
     agenda = Agenda(
     momentos_del_dia = data["momentos_del_dia"], 
     dias_semana = data["dias_semana"],
-    nombre = data ["nombre"],
+    nombre = data ["nombre"], #habria que quitar tambien de aqui nombre y apellidos
     apellidos = data ["apellidos"],
     urlP = data["urlP"],)
     db.session.add(agenda)
@@ -138,4 +147,39 @@ def mostrarAgenda():
     resultado = []
     resultado = [agenda.serialize () for agenda in agendaAll]
     return jsonify(resultado),200
-   
+
+    
+# @api.route('/agenda/<nombre>/', methods=['GET'])
+# def mostrarAgenda2(nombre):
+
+#     agendaAll = Agenda.query.all ()
+#     resultado = []
+#     resultado = [agenda.serialize () for agenda in agendaAll]
+#     return jsonify(resultado),200
+
+@api.route('/agenda/usuarios', methods=['GET'])
+def get_usuarios():
+    nombre_usuarios = Agenda.query.all()
+    usuarios = []
+    apellidos_lista = []
+    for x in nombre_usuarios:
+        usuarios.append(x.nombre)
+        apellidos_lista.append(x.apellidos)
+    return jsonify({"nombres": usuarios, "apellidos": apellidos_lista}), 200
+
+    
+    
+@api.route('<string:dia_var>/<string:nombre_var>/<string:apellidos_var>/', methods=['GET'])
+def get_momentos(nombre_var, apellidos_var, dia_var):
+    Pictos = Agenda.query.filter_by(nombre = nombre_var, apellidos = apellidos_var, dias_semana=dia_var).all()
+    pictos_mañana = []
+    pictos_tarde = []
+    pictos_noche = []
+    for x in Pictos:
+        if x.momentos_del_dia == "Mañana":
+            pictos_mañana.append(x.urlP)
+        elif x.momentos_del_dia == "Tarde":
+            pictos_tarde.append(x.urlP)
+        elif x.momentos_del_dia == "Noche":
+            pictos_noche.append(x.urlP)
+    return jsonify({"mañana": pictos_mañana, "tarde": pictos_tarde, "noche": pictos_noche}), 200
