@@ -51,18 +51,18 @@ export const Signup = () => {
     return(
         <>
             <div className="container text-center mt-5">
-                <h1 className="text-success">REGISTRO</h1>
+                <h1 className="text_azul">REGISTRO</h1>
                 <div className="row justify-content-md-center">
-                    <div className="col-3">
+                    <div className="col-3 p-3 border bg-white">
                         <input className="form-check-input m-2" type="checkbox" checked={isChecked} onChange={handleOnChange}></input>
                         <label className="form-check-label">Padre</label>
-                        <input className="form-control mb-3 border border-success" placeholder="Nombre" onChange={(event) => setNombre(event.target.value)}></input>
-                        <input className="form-control mb-3 border border-success" placeholder="Apellidos" onChange={(event) => setApellidos(event.target.value)}></input>
-                        <input className="form-control mb-3 border border-success" placeholder="Teléfono" onChange={(event) => setTelefono(event.target.value)}></input>
-                        <input className="form-control mb-3 border border-success" placeholder="Dirección" onChange={(event) => setDireccion(event.target.value)}></input>
-                        <input className="form-control mb-3 border border-success" placeholder="Email" onChange={(event) => setEmail(event.target.value)}></input>
-                        <input className="form-control mb-3 border border-success" placeholder="Password" onChange={(event) => setPassword(event.target.value)}></input>
-                        <button className="btn btn-outline-success" onClick={registro}>Registrarse</button>
+                        <input className="form-control mb-3 border" placeholder="Nombre" onChange={(event) => setNombre(event.target.value)}></input>
+                        <input className="form-control mb-3 border" placeholder="Apellidos" onChange={(event) => setApellidos(event.target.value)}></input>
+                        <input className="form-control mb-3 border" placeholder="Teléfono" onChange={(event) => setTelefono(event.target.value)}></input>
+                        <input className="form-control mb-3 border" placeholder="Dirección" onChange={(event) => setDireccion(event.target.value)}></input>
+                        <input className="form-control mb-3 border" placeholder="Email" onChange={(event) => setEmail(event.target.value)}></input>
+                        <input className="form-control mb-3 border" placeholder="Password" onChange={(event) => setPassword(event.target.value)}></input>
+                        <button className="btn" onClick={registro}>Registrarse</button>
                     </div>
                 </div>
             </div>

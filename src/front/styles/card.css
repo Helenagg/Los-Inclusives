@@ -15,7 +15,7 @@
   margin: 20px;
   border-radius: 6px;
   overflow: hidden;
-  background: #00ff7f;
+  background: #3888AD;
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
   cursor: default;
   transition: all 400ms ease;
@@ -41,7 +41,7 @@
 
 .card .contenido p {
   line-height: 1.5;
-  color: #6a6a6a;
+  color: white;
 }
 
 .card .contenido a {

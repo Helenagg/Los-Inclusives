@@ -10,7 +10,7 @@ export const Dia = (props) => {
 
       <li className="nav-item" role="presentation">
         <button
-          className="nav-link"
+          className="nav-link text_azul"
           id="contact-tab"
           data-bs-toggle="tab"
           data-bs-target={props.diaId}

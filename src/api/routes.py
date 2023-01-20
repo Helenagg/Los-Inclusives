@@ -49,7 +49,8 @@ def login():
         
     response_body = {
         "message" : "Accediendo a login",
-        "token" : access_token
+        "token" : access_token,
+        "user" : user.serialize()
     }
     return jsonify(response_body),200
 
@@ -57,11 +58,13 @@ def login():
 @api.route("/private", methods=["GET"])
 @jwt_required()
 def private():
+    userEmail = get_jwt_identity()
+    user = User.query.filter_by(email=userEmail).first()
     # Access the identity of the current user with get_jwt_identity
     response_body = {
         "message": "Accediendo a privada",
         "correcto": "true",
-        "user": get_jwt_identity()
+        "user": user.serialize()
     }
     
     return jsonify(response_body), 200

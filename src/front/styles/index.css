@@ -2,6 +2,35 @@
     General Styles used on every website (Don't Repeat Yourself)
 */
 
+
+/* color:
+Amarillo FFD600
+Azul oscuro 1C4488
+Naranja EA503A
+Azul claro 3888AD */
+
+.alto {
+    height: 75vh;
+}
+
+.btn {
+    background-color: #3888AD !important;
+    color: white;
+    border-color: #1C4488
+}
+
+.btn-outline {
+    border: #1C4488
+}
+
+.text_azul {
+    color: #3888AD
+}
+
+.text_oscuro {
+    color: #1C4488
+}
+=======
 .ContenedorPadrePictogramas {
 }
 
@@ -50,3 +79,4 @@
     rgba(75, 29, 74, 0.5)
   );
 }
+

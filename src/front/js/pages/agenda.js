@@ -302,7 +302,7 @@ export const Agenda = (props) => {
               <Link className="btn btn-outline-success m-3" to="/juegos">
                 Te lo ganaste
               </Link>
-            </div>
+            </div>       
           </div>
         ))}
       </div>
