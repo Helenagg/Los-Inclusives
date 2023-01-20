@@ -58,9 +58,9 @@ export const Home = () => {
   
 	return (
 		<>
-			<div className="container-fluid text-center mt-5 alto" style={{backgroundImage: `url(${background})`}}>
+			<div className="container-fluid text-center mt-5 alto" style={{backgroundImage: `url(https://res.cloudinary.com/djvh4yhoi/image/upload/v1674242978/manitas_alto_contraste_ckn30o.svg)`}}>
 				<div className="row justify-content-md-center"> 
-					<div className="col-3 border bg-white">
+					<div className="col-3 p-3 border_login bg-white">
 						<h1 className="text_azul">LOGIN</h1>
 						<input className="form-check-input m-2" type="checkbox" checked={isChecked} onChange={handleOnChange}></input>
                         <label className="form-check-label">Padre</label>

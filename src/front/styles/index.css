@@ -20,7 +20,7 @@ Azul claro 3888AD */
 }
 
 .btn-outline {
-    border: #1C4488
+    border: border_color
 }
 
 .text_azul {
@@ -30,9 +30,9 @@ Azul claro 3888AD */
 .text_oscuro {
     color: #1C4488
 }
-=======
-.ContenedorPadrePictogramas {
-  
+
+.border_login {
+  border: 3px #3888AD solid;
 }
 
 .ContenidoAgenda {

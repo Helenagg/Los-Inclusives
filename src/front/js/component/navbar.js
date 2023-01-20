@@ -18,7 +18,7 @@ export const Navbar = () => {
 						<button className="btn btn-white">Uso de la App</button>
 					</Link>
 					<Link to="/">
-						<button className="btn btn-white m-2">{store.user?.nombre}</button>
+						<button className="btn btn-white m-2">{store.user.nombre ? store.user.nombre : "Login"}</button>
 					</Link>
 				</div>
 			</div>
