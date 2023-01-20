@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { CardPictogramas } from "../component/cardPictogramas";
-import { Momento } from "../component/momento";
+import { MomentoAgenda } from "../component/momentoAgenda";
 import { Dia } from "../component/dias";
 import "../../styles/cardPictogramas.css";
 import { Context } from "../store/appContext";
@@ -255,7 +255,7 @@ export const Agenda = (props) => {
             <div className="ContenidoAgenda">
               <div className="MomentoFila">
                 <div className="MomentoContenedor">
-                  <Momento momentoIndex={"0"} />
+                  <MomentoAgenda momentoIndex={"0"} />
                 </div>
                 {/* MAÑANA */}
                 <div className="PictogramasContenedor">
@@ -271,7 +271,7 @@ export const Agenda = (props) => {
               {/* TARDE */}
               <div className="MomentoFila">
                 <div className="MomentoContenedor">
-                  <Momento momentoIndex={"1"} />
+                  <MomentoAgenda momentoIndex={"1"} />
                 </div>
                 <div className="PictogramasContenedor">
                   {pictosTarde &&
@@ -285,7 +285,7 @@ export const Agenda = (props) => {
               {/* NOCHE */}
               <div className="MomentoFila">
                 <div className="MomentoContenedor">
-                  <Momento momentoIndex={"2"} />
+                  <MomentoAgenda momentoIndex={"2"} />
                 </div>
                 <div className="PictogramasContenedor">
                   {" "}

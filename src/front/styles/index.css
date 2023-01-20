@@ -32,9 +32,11 @@ Azul claro 3888AD */
 }
 =======
 .ContenedorPadrePictogramas {
+  
 }
 
 .ContenidoAgenda {
+  margin: 0 1rem 0 4%;
   width: 100%;
   height: 80vh;
   display: flex;

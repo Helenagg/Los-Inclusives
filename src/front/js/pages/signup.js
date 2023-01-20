@@ -40,7 +40,7 @@ export const Signup = () => {
         redirect: 'follow'
         };
 
-        fetch("https://3001-helenagg-losinclusives-riklvtx64l2.ws-eu82.gitpod.io/api/signup", requestOptions)
+        fetch(`${process.env.BACKEND_URL}/api/signup`, requestOptions)
         .then(response => response.json())
         .then(result => {
             if(result.message) navigate("/")

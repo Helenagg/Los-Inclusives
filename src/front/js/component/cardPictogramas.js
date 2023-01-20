@@ -15,7 +15,6 @@ export const CardPictogramas = (props) => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+
   );
 };

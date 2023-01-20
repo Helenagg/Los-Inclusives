@@ -46,7 +46,7 @@ export const Parents = (props) => {
     };
 
     fetch(
-      "https://3001-helenagg-losinclusives-mrjvrjgmddp.ws-eu81.gitpod.io/api/private",
+      `${process.env.BACKEND_URL}/api/private`,
       requestOptions
     )
       .then((response) => response.json())
@@ -79,7 +79,7 @@ export const Parents = (props) => {
     };
 
     fetch(
-      "https://3001-helenagg-losinclusives-oywbmsh4ij1.ws-eu83.gitpod.io/api/agenda",
+      `${process.env.BACKEND_URL}/api/agenda`,
       requestOptions
     )
       .then((response) => response.json())
@@ -104,7 +104,7 @@ export const Parents = (props) => {
       redirect: "follow",
     };
     fetch(
-      "https://3001-helenagg-losinclusives-oywbmsh4ij1.ws-eu83.gitpod.io/api/agenda",
+      `${process.env.BACKEND_URL}/api/agenda`,
       requestOptions
     )
       .then((response) => response.json())
