@@ -7,7 +7,7 @@ export const Dia = (props) => {
   console.log(elegirDia)
 
     return (
-        
+
       <li className="nav-item" role="presentation">
         <button
           className="nav-link text_azul"
@@ -18,6 +18,7 @@ export const Dia = (props) => {
           role="tab"
           aria-controls="contact"
           aria-selected="false"
+          onClick={props.Onclick}
         >
           {props.dia}
         </button>
