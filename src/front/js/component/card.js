@@ -12,7 +12,7 @@ export const CardJuegos = (props) => {
           <div className ="contenido">
             <h5>{props.titulo}</h5>
             <p>{props.descripcion}</p>
-            <a href = {props.url}>¡A JUGAR!</a>
+            <a href = {props.url} target="_blank">¡A JUGAR!</a>
           </div>
         </div>
        

@@ -36,8 +36,6 @@ export const Pictogramas = (props) => {
     setCount((count) => count - 1);
   };
 
-  // enviamos a la tabla Pictogramas el pictograma seleccionado
-
   return (
     <>
       <div className="container text-center mt-5">
@@ -56,68 +54,80 @@ export const Pictogramas = (props) => {
               </button>
             </div>
           </div>
+          <div className="col-3">
+            <h5>Pictogramas añadidos: {count}</h5>
+          </div>
+          <div className="col-3">
+          <p>
+          <Link to="/agenda" className="btn btn-outline-success">
+            Agenda creada!
+          </Link>
+        </p>
+          </div>
         </div>
         <div className="container">
           <div className="row">
-            {result.map((element) => {
-              return (
-                <>
-                  <CardPictogramas
-                    imagen={
-                      "https://static.arasaac.org/pictograms/" +
-                      element._id +
-                      "/" +
-                      element._id +
-                      "_300.png"
-                    }
-                    descripcion={
-                      <>
-                        <p>
-                          <Link
-                            to={"/parents"}
-                            style={{ textDecoration: "none", border: 0 }}
-                          >
-                            <button
-                              className="btn btn-outline-success"
-                              onClick={() => {
-                                props.seleccionar(
-                                  "https://static.arasaac.org/pictograms/" +
-                                    element._id +
-                                    "/" +
-                                    element._id +
-                                    "_300.png"
-                                );
-                                handleIncrement();
-                              }}
+            {/* <div className="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2"> */}
+              {result.map((element) => {
+                return (
+                  <>
+                    <CardPictogramas
+                      imagen={
+                        "https://static.arasaac.org/pictograms/" +
+                        element._id +
+                        "/" +
+                        element._id +
+                        "_300.png"
+                      }
+                      descripcion={
+                        <>
+                          <p>
+                            <Link
+                              to={"/parents"}
+                              style={{ textDecoration: "none", border: 0 }}
                             >
-                              Seleccionar
-                            </button>
-                            <button
-                              className="btn btn-outline-success"
-                              onClick={() => {
-                                props.borrar(
-                                  "https://static.arasaac.org/pictograms/" +
-                                    element._id +
-                                    "/" +
-                                    element._id +
-                                    "_300.png"
-                                );
-                                handleDecrement();
-                              }}
-                            >
-                              Borrar
-                            </button>
-                          </Link>
-                        </p>
-                        {element.keywords?.map((keyword) => {
-                          return <p>{keyword.keyword}</p>;
-                        })}
-                      </>
-                    }
-                  />
-                </>
-              );
-            })}
+                              <button
+                                className="btn btn-outline-success"
+                                onClick={() => {
+                                  props.seleccionar(
+                                    "https://static.arasaac.org/pictograms/" +
+                                      element._id +
+                                      "/" +
+                                      element._id +
+                                      "_300.png"
+                                  );
+                                  handleIncrement();
+                                }}
+                              >
+                                Seleccionar
+                              </button>
+                              <button
+                                className="btn btn-outline-success"
+                                onClick={() => {
+                                  props.borrar(
+                                    "https://static.arasaac.org/pictograms/" +
+                                      element._id +
+                                      "/" +
+                                      element._id +
+                                      "_300.png"
+                                  );
+                                  handleDecrement();
+                                }}
+                              >
+                                Borrar
+                              </button>
+                            </Link>
+                          </p>
+                          {element.keywords?.map((keyword) => {
+                            return <p>{keyword.keyword}</p>;
+                          })}
+                        </>
+                      }
+                    />
+                  </>
+                );
+              })}
+            {/* </div> */}
           </div>
         </div>
         <div>
@@ -127,13 +137,6 @@ export const Pictogramas = (props) => {
             </div>
           )}
         </div>
-
-        <h5>Pictogramas añadidos: {count}</h5>
-        <p>
-          <Link to="/agenda" className="btn btn-outline-success">
-            Agenda creada!
-          </Link>
-        </p>
       </div>
     </>
   );

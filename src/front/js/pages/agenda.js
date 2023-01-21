@@ -249,7 +249,7 @@ export const Agenda = (props) => {
             aria-labelledby="home-tab"
           >
             <div className="diaSemana" style={{ paddingLeft: "40px" }}>
-              <i className="far fa-calendar">{diaElegido}</i>
+              <i className="far fa-calendar"> {diaElegido}</i>
             </div>
 
             <div className="ContenidoAgenda">
@@ -299,7 +299,7 @@ export const Agenda = (props) => {
               </div>
             </div>
             <div className="botonJuego" key={index}>
-              <Link className="btn btn-outline-success m-3" to="/juegos">
+              <Link className="btn m-3" to="/juegos">
                 Te lo ganaste
               </Link>
             </div>       

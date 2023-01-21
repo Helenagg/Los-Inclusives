@@ -8,7 +8,7 @@ export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<nav className="navbar navbar-light bg-white">
+		<nav className="navbar navbar-light fondo">
 			<div className="container">
 				<Link to="/">
 					<span className="navbar-brand mb-0 h1"><Logo style={{height: 70}}/></span>
