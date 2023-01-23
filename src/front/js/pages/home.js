@@ -58,14 +58,14 @@ export const Home = () => {
   
 	return (
 		<>
-			<div className="container-fluid text-center mt-5 alto" style={{backgroundImage: `url(${background})`}}>
+			<div className="container-fluid text-center mt-5 alto" style={{backgroundImage: `url(https://res.cloudinary.com/djvh4yhoi/image/upload/v1674242978/manitas_alto_contraste_ckn30o.svg)`}}>
 				<div className="row justify-content-md-center"> 
-					<div className="col-3 border bg-white">
+					<div className="col-3 p-3 border_login bg-white position-absolute top-50 start-50 translate-middle">
 						<h1 className="text_azul">LOGIN</h1>
 						<input className="form-check-input m-2" type="checkbox" checked={isChecked} onChange={handleOnChange}></input>
                         <label className="form-check-label">Padre</label>
 						<input className="form-control mb-3 border" placeholder="Email" onChange={(event) => setEmail(event.target.value)}></input>
-						<input className="form-control mb-3 border" placeholder="Contraseña" onChange={(event) => setPassword(event.target.value)}></input>
+						<input className="form-control mb-3 border" placeholder="Contraseña" type="password" onChange={(event) => setPassword(event.target.value)}></input>
 						<button className="btn m-3" onClick={login}>Login</button>
 						<button className="btn"><Link to={"/signup/"} style={{textDecoration: 'none', color: 'white'}}>Registro</Link></button>
 						{error && (

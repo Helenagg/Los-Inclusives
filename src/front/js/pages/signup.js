@@ -50,10 +50,10 @@ export const Signup = () => {
 
     return(
         <>
-            <div className="container text-center mt-5">
-                <h1 className="text_azul">REGISTRO</h1>
+            <div className="container-fluid text-center mt-5 alto" style={{backgroundImage: `url(https://res.cloudinary.com/djvh4yhoi/image/upload/v1674242978/manitas_alto_contraste_ckn30o.svg)`}}>
                 <div className="row justify-content-md-center">
-                    <div className="col-3 p-3 border bg-white">
+                    <div className="col-3 p-3 border_login bg-white position-absolute top-50 start-50 translate-middle">
+                    <h1 className="text_azul">REGISTRO</h1>
                         <input className="form-check-input m-2" type="checkbox" checked={isChecked} onChange={handleOnChange}></input>
                         <label className="form-check-label">Padre</label>
                         <input className="form-control mb-3 border" placeholder="Nombre" onChange={(event) => setNombre(event.target.value)}></input>
@@ -61,7 +61,7 @@ export const Signup = () => {
                         <input className="form-control mb-3 border" placeholder="Teléfono" onChange={(event) => setTelefono(event.target.value)}></input>
                         <input className="form-control mb-3 border" placeholder="Dirección" onChange={(event) => setDireccion(event.target.value)}></input>
                         <input className="form-control mb-3 border" placeholder="Email" onChange={(event) => setEmail(event.target.value)}></input>
-                        <input className="form-control mb-3 border" placeholder="Password" onChange={(event) => setPassword(event.target.value)}></input>
+                        <input className="form-control mb-3 border" placeholder="Password" type="password" onChange={(event) => setPassword(event.target.value)}></input>
                         <button className="btn" onClick={registro}>Registrarse</button>
                     </div>
                 </div>

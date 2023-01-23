@@ -151,7 +151,7 @@ export const Parents = (props) => {
         </ul>
         <button
           type="button"
-          className="ms-2 btn btn-success dropdown-toggle"
+          className="ms-2 btn dropdown-toggle"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
@@ -165,7 +165,6 @@ export const Parents = (props) => {
           </li>
         </ul>
       </div>
-      {/* <Pictogramas /> */}
       <ul
         className="nav nav-tabs container-fluid"
         id="myTab"
@@ -191,13 +190,14 @@ export const Parents = (props) => {
                   <div className="diaSemana" style={{ paddingLeft: "40px" }}>
                     <i class="far fa-calendar"> {dia}</i>
                     <Momento dia={dia} setSemana={setSemana} setMomento={setMomento}/>
-                    {name}{surname}{momento}{semana}
+                    {/* {name}{surname}{momento}{semana} */}
                   </div>
                 </nav>
               </div>
               <div className="col-8">
                 <Pictogramas 
                   seleccionar={seleccionar}
+                  borrar={borrar}
                 />
               </div>
             </div>

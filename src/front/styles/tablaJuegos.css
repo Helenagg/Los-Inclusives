@@ -9,13 +9,14 @@
   text-align: center;
 }
 .contenedor-button a {
+  width: 80px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   padding: 10px;
   margin-top: 10px;
-  color: #006400;
-  border: 1px solid #006400;
+  color: white;
+  border: 1px solid #1C4488;
   background-color: #3888AD;
   border-radius: 4px;
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);

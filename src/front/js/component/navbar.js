@@ -8,7 +8,7 @@ export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<nav className="navbar navbar-light bg-white">
+		<nav className="navbar navbar-light fondo">
 			<div className="container">
 				<Link to="/">
 					<span className="navbar-brand mb-0 h1"><Logo style={{height: 70}}/></span>
@@ -18,7 +18,7 @@ export const Navbar = () => {
 						<button className="btn btn-white">Uso de la App</button>
 					</Link>
 					<Link to="/">
-						<button className="btn btn-white m-2">{store.user?.nombre}</button>
+						<button className="btn btn-white m-2">{store.user.nombre ? store.user.nombre : "Login"}</button>
 					</Link>
 				</div>
 			</div>

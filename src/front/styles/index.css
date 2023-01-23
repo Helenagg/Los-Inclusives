@@ -20,7 +20,7 @@ Azul claro 3888AD */
 }
 
 .btn-outline {
-    border: #1C4488
+    border: border_color
 }
 
 .text_azul {
@@ -30,11 +30,15 @@ Azul claro 3888AD */
 .text_oscuro {
     color: #1C4488
 }
-=======
-.ContenedorPadrePictogramas {
-  
+
+.border_login {
+  border: 3px #3888AD solid;
 }
 
+.fondo {
+  /* background-color: rgba(56, 136, 173, 0.3); */
+  background-color: rgba(28, 68, 136, 0.3);
+}
 .ContenidoAgenda {
   margin: 0 1rem 0 4%;
   width: 100%;
@@ -42,9 +46,6 @@ Azul claro 3888AD */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-.FilaPictos {
 }
 
 .MomentoFila {
