@@ -18,7 +18,7 @@ export const Footer = () => (
 	<nav className="navbar navbar-light fondo mt-3">
 			<div className="container">
 				<div className="ml-auto">
-					Thanks to <a href="https://arasaac.org/" style={{textDecoration: "none", color: "black"}}>© ARASAAC - Gobierno de Aragón, 2023</a>
+					Thanks to <a href="https://arasaac.org/" target="_blank" style={{textDecoration: "none", color: "black"}}>© ARASAAC - Gobierno de Aragón, 2023</a>
 				</div>
 				<div className="ml-auto">
 					<span className="navbar-brand mb-0 h1"><LogoGrande style={{height: 50}}/></span>
