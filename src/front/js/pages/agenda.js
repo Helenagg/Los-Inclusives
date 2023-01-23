@@ -196,6 +196,11 @@ export const Agenda = (props) => {
         >
           Seleccionar
         </button>
+        <Link to="/parents">
+          <button className="btn btn-white ms-2">
+            <i class="fas fa-undo"></i>
+          </button>
+        </Link>
         <ul className="dropdown-menu">
           <li>
             <p className="dropdown-item" href="#">
