@@ -61,7 +61,7 @@ export const Signup = () => {
                         <input className="form-control mb-3 border" placeholder="Teléfono" onChange={(event) => setTelefono(event.target.value)}></input>
                         <input className="form-control mb-3 border" placeholder="Dirección" onChange={(event) => setDireccion(event.target.value)}></input>
                         <input className="form-control mb-3 border" placeholder="Email" onChange={(event) => setEmail(event.target.value)}></input>
-                        <input className="form-control mb-3 border" placeholder="Password" onChange={(event) => setPassword(event.target.value)}></input>
+                        <input className="form-control mb-3 border" placeholder="Password" type="password" onChange={(event) => setPassword(event.target.value)}></input>
                         <button className="btn" onClick={registro}>Registrarse</button>
                     </div>
                 </div>

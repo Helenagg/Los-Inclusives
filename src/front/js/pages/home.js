@@ -65,7 +65,7 @@ export const Home = () => {
 						<input className="form-check-input m-2" type="checkbox" checked={isChecked} onChange={handleOnChange}></input>
                         <label className="form-check-label">Padre</label>
 						<input className="form-control mb-3 border" placeholder="Email" onChange={(event) => setEmail(event.target.value)}></input>
-						<input className="form-control mb-3 border" placeholder="Contraseña" onChange={(event) => setPassword(event.target.value)}></input>
+						<input className="form-control mb-3 border" placeholder="Contraseña" type="password" onChange={(event) => setPassword(event.target.value)}></input>
 						<button className="btn m-3" onClick={login}>Login</button>
 						<button className="btn"><Link to={"/signup/"} style={{textDecoration: 'none', color: 'white'}}>Registro</Link></button>
 						{error && (
