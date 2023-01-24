@@ -114,7 +114,7 @@ export const Parents = (props) => {
 
   return (
     <>
-      
+    <div className="container-fluid h-100">
       <div className="mt-3 btn-group">
         <button
           type="button"
@@ -149,7 +149,7 @@ export const Parents = (props) => {
             <button className="btn btn-outline-success m-3">Agregar</button>
           </li>
         </ul>
-        <button
+        {/* <button
           type="button"
           className="ms-2 btn dropdown-toggle"
           data-bs-toggle="dropdown"
@@ -163,46 +163,48 @@ export const Parents = (props) => {
               {name} {surname}
             </p>
           </li>
-        </ul>
+        </ul> */}
+        <input className="ms-2" placeholder={name+" "+surname}></input>
       </div>
-      <ul
-        className="nav nav-tabs container-fluid"
-        id="myTab"
-        role="tablist"
-        style={{ width: "fit-content" }}
-      >
-        {dias.map((dia) => (
-          <Dia diaId={`#${dia}`} dia={dia} />
-        ))}
-      </ul>
-      <div className="tab-content" id="myTabContent">
-        {dias.map((dia) => (
-          
-            <div
-              className="tab-pane fade show"
-              id={dia}
-              role="tabpanel"
-              aria-labelledby="home-tab"
-            >
-            <div className="row justify-content-start mt-3">
-              <div className="col-3">
-                <nav className="navbar position-static">
-                  <div className="diaSemana" style={{ paddingLeft: "40px" }}>
-                    <i class="far fa-calendar"> {dia}</i>
-                    <Momento dia={dia} setSemana={setSemana} setMomento={setMomento}/>
-                    {/* {name}{surname}{momento}{semana} */}
-                  </div>
-                </nav>
+        <ul
+          className="nav nav-tabs container-fluid"
+          id="myTab"
+          role="tablist"
+          style={{ width: "fit-content" }}
+        >
+          {dias.map((dia) => (
+            <Dia diaId={`#${dia}`} dia={dia} />
+          ))}
+        </ul>
+        <div className="tab-content" id="myTabContent">
+          {dias.map((dia) => (
+            
+              <div
+                className="tab-pane fade show"
+                id={dia}
+                role="tabpanel"
+                aria-labelledby="home-tab"
+              >
+              <div className="row justify-content-start mt-3">
+                <div className="col-3">
+                  <nav className="navbar position-static">
+                    <div className="diaSemana" style={{ paddingLeft: "40px" }}>
+                      <i class="far fa-calendar"> {dia}</i>
+                      <Momento dia={dia} setSemana={setSemana} setMomento={setMomento}/>
+                      {/* {name}{surname}{momento}{semana} */}
+                    </div>
+                  </nav>
+                </div>
+                <div className="col-8">
+                  <Pictogramas 
+                    seleccionar={seleccionar}
+                    borrar={borrar}
+                  />
+                </div>
               </div>
-              <div className="col-8">
-                <Pictogramas 
-                  seleccionar={seleccionar}
-                  borrar={borrar}
-                />
-              </div>
-            </div>
-          </div>  
-        ))}
+            </div>  
+          ))}
+        </div>
       </div>
     </>
   );

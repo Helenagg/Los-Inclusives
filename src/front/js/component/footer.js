@@ -15,7 +15,7 @@ export const Footer = () => (
 	// 	</div>	
 	// </footer>
 
-	<nav className="navbar navbar-light fondo mt-3">
+	<nav className="footer navbar fondo w-100">
 			<div className="container">
 				<div className="ml-auto">
 					Thanks to <a href="https://arasaac.org/" target="_blank" style={{textDecoration: "none", color: "black"}}>© ARASAAC - Gobierno de Aragón, 2023</a>

@@ -9,6 +9,15 @@ Azul oscuro 1C4488
 Naranja EA503A
 Azul claro 3888AD */
 
+/* .footer {
+  position: absolute;
+  clear: both;
+  margin-top: 0;
+  padding-top: 0;
+  overflow: visible;
+  top: 100%;
+} */
+
 .alto {
     height: 75vh;
 }
