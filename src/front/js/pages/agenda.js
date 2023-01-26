@@ -16,6 +16,9 @@ export const Agenda = (props) => {
   const [pictosNoche, setPictosNoche] = useState(["	https://picsum.photos/200"]);
   const [pictosMezclados, setPictosMezclados] = useState({});
   const [diaElegido, setDiaElegido] = useState("");
+  const [contador, setContador] = useState(0);
+  const pictosTotal =
+    pictosMañana?.length + pictosTarde?.length + pictosNoche?.length;
   const dias = [
     "Lunes",
     "Martes",
@@ -31,38 +34,6 @@ export const Agenda = (props) => {
     setPictosTarde(pictosMezclados.tarde);
     setPictosNoche(pictosMezclados.noche);
   }, [pictosMezclados]);
-  // useEffect(() => {
-  //   var myHeaders = new Headers();
-  //   myHeaders.append(
-  //     "Authorization",
-  //     "Bearer " + localStorage.getItem("token")
-  //   );
-  //   myHeaders.append("Content-Type", "application/json");
-
-  //   var raw = JSON.stringify({
-  //     email: "javim552@gmail.com",
-  //     password: "12345",
-  //   });
-
-  //   var requestOptions = {
-  //     method: "GET",
-  //     headers: myHeaders,
-  //     body: raw,
-  //     redirect: "follow",
-  //   };
-
-  //   fetch(
-  //     "https://3001-helenagg-losinclusives-mrjvrjgmddp.ws-eu81.gitpod.io/api/private",
-  //     requestOptions
-  //   )
-  //     .then((response) => response.json())
-  //     .then((result) => {
-  //       if (!result.correcto) {
-  //         navigate("/");
-  //       }
-  //     })
-  //     .catch((error) => console.log("error", error));
-  // }, []);
 
   //  -------------------------- LLAMADA A NUESTRA BASE DE DATOS -------------------------------------------------------
   const [usuarios, setUsuarios] = useState({
@@ -175,15 +146,8 @@ export const Agenda = (props) => {
   };
   ///<<<<<<<<<<<<<<Funciones
 
-  // ------------------------------- Contador de clicks para boton de juego  -------------------------------------
-  // let contador = 0;
-  // const contadorClicks = () =>{
-  //   contadorTotal = contador ++;
+  console.log("contador", contador, "pictostotal", pictosTotal);
 
-  //       return console.log (contadorTotal)
-
-  // }
-  // -------------------------------------------------------------------------------------------------------------
   return (
     <>
       {/* Boton  usuarios*/}
@@ -267,7 +231,9 @@ export const Agenda = (props) => {
                   {pictosMañana &&
                     pictosMañana.map((picto, index) => (
                       <div key={index} className="PictoContenedor">
-                        <CardPictogramas imagen={picto} />
+                        <label onClick={() => setContador(contador + 1)}>
+                          <CardPictogramas imagen={picto} />
+                        </label>
                       </div>
                     ))}
                 </div>
@@ -303,11 +269,13 @@ export const Agenda = (props) => {
                 </div>
               </div>
             </div>
-            <div className="botonJuego" key={index}>
-              <Link className="btn m-3" to="/juegos">
-                Te lo ganaste
-              </Link>
-            </div>       
+            {pictosTotal == contador ? (
+              <div className="botonJuego" key={index}>
+                <Link className="btn m-3" to="/juegos">
+                  Te lo ganaste
+                </Link>
+              </div>
+            ) : null}
           </div>
         ))}
       </div>
