@@ -119,7 +119,7 @@ export const Pictogramas = (props) => {
                             </Link>
                           </p>
                           {element.keywords?.map((keyword) => {
-                            return <p>{keyword.keyword}</p>;
+                            return <p  style={{textTransform: "capitalize"}}>{keyword.keyword}</p>;
                           })}
                         </>
                       }

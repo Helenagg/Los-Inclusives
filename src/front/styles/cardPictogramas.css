@@ -43,11 +43,13 @@
 }
 
 .card .contenido p {
+  
   line-height: 1.5;
   color: white;
 }
 
 .card .contenido a {
+
     text-decoration: none;
     display: inline-block;
     padding: 10px;
