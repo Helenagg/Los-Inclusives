@@ -100,28 +100,45 @@ def crear_agenda():
 
 
 
+# @api.route("/agenda", methods=['DELETE'])
+# def borrar_agenda():
+#    data = request.data
+#    data = json.loads(data)
+
+#    agenda = Agenda(
+#    momentos_del_dia = data["momentos_del_dia"], 
+#    dias_semana = data["dias_semana"],
+#    nombre = data ["nombre"],
+#    apellidos = data ["apellidos"],
+#    urlP = data["urlP"],)
+   
+#    db.session.delete(agenda)
+#    db.session.commit()
+   
+   
+#    response_body = {
+#       "msg": "borrando agenda"
+
+#    },
+#    return jsonify(agenda), 200
+
 @api.route("/agenda", methods=['DELETE'])
-def borrar_agenda():
-   data = request.data
-   data = json.loads(data)
+def borrar_agenda(semana, momento, name, surname, url):
+    agenda = Agenda.query.filter_by(
+        dias_semana=semana,
+      momentos_del_dia=momento,
+      nombre=name,
+      apellidos=surname,
+      urlP=url
+    )
+    db.session.delete(agenda)
+    db.session.commit()
 
-   agenda = Agenda(
-   momentos_del_dia = data["momentos_del_dia"], 
-   dias_semana = data["dias_semana"],
-   nombre = data ["nombre"],
-   apellidos = data ["apellidos"],
-   urlP = data["urlP"],)
-   
-   db.session.delete(agenda)
-   db.session.commit()
-   
-   
-   response_body = {
-      "msg": "borrando agenda"
+    response_body = {
+        "message": "Delete Pictograma",
+    }
 
-   },
-   return jsonify(agenda), 200
-
+    return jsonify(response_body), 200
 
 # @api.route("/pictogramas", methods=["POST"])
 # def crear_pictograma():

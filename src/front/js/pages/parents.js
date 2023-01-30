@@ -87,30 +87,56 @@ export const Parents = (props) => {
       .catch((error) => console.log("error", error));
   };
 //BORRAR PICTOGRAMAS
-  const borrar = (url) => {
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    var raw = JSON.stringify({
-      dias_semana: semana,
-      momentos_del_dia: momento,
-      nombre: name,
-      apellidos: surname,
-      urlP: url,
-    });
-    var requestOptions = {
-      method: "DELETE",
-      headers: myHeaders,
-      body: raw,
-      redirect: "follow",
-    };
-    fetch(
-      `${process.env.BACKEND_URL}/api/agenda`,
-      requestOptions
-    )
-      .then((response) => response.json())
-      .then((result) => console.log(result))
-      .catch((error) => console.log("error", error));
-  };
+  // const borrar = (url) => {
+  //   var myHeaders = new Headers();
+  //   myHeaders.append("Content-Type", "application/json");
+  //   var raw = JSON.stringify({
+  //     dias_semana: semana,
+  //     momentos_del_dia: momento,
+  //     nombre: name,
+  //     apellidos: surname,
+  //     urlP: url,
+  //   });
+  //   var requestOptions = {
+  //     method: "DELETE",
+  //     headers: myHeaders,
+  //     body: raw,
+  //     redirect: "follow",
+  //   };
+  //   fetch(
+  //     `${process.env.BACKEND_URL}/api/agenda`,
+  //     requestOptions
+  //   )
+  //     .then((response) => response.json())
+  //     .then((result) => console.log(result))
+  //     .catch((error) => console.log("error", error));
+  // };
+
+const borrar = (url) => {
+
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  var raw = JSON.stringify({
+    "dias_semana": semana,
+    "momentos_del_dia": momento,
+    "nombre": name,
+    "apellidos": surname,
+    "urlP": url
+  });
+
+  var requestOptions = {
+    method: 'DELETE',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+};
+
+fetch("https://3001-helenagg-losinclusives-ajkdsbvn78w.ws-eu84.gitpod.io/api/agenda", requestOptions)
+  .then(response => response.json())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+}
 
   return (
     <>
