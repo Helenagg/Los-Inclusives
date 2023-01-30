@@ -112,7 +112,7 @@ export const Parents = (props) => {
   //     .catch((error) => console.log("error", error));
   // };
 
-const borrar = (url) => {
+const borrar = (id) => {
 
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -132,7 +132,7 @@ const borrar = (url) => {
     redirect: 'follow'
 };
 
-fetch("https://3001-helenagg-losinclusives-ajkdsbvn78w.ws-eu84.gitpod.io/api/agenda", requestOptions)
+fetch( `${process.env.BACKEND_URL}/api/id`, requestOptions)
   .then(response => response.json())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));

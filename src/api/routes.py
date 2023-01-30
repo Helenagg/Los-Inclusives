@@ -122,15 +122,9 @@ def crear_agenda():
 #    },
 #    return jsonify(agenda), 200
 
-@api.route("/agenda", methods=['DELETE'])
-def borrar_agenda(semana, momento, name, surname, url):
-    agenda = Agenda.query.filter_by(
-        dias_semana=semana,
-      momentos_del_dia=momento,
-      nombre=name,
-      apellidos=surname,
-      urlP=url
-    )
+@api.route("/agenda/<string:id>", methods=['DELETE'])
+def borrar_agenda(id):
+    agenda = Agenda.query.get(id)
     db.session.delete(agenda)
     db.session.commit()
 
