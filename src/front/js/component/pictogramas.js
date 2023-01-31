@@ -38,9 +38,9 @@ export const Pictogramas = (props) => {
 
   return (
     <>
-      <div className="container text-center mt-5">
+      <div className="container text-center mt-3">
         <div className="row">
-          <div className="col-3">
+          <div className="col">
             <div className="d-flex" role="search">
               <input
                 className="form-control me-2"
@@ -54,20 +54,20 @@ export const Pictogramas = (props) => {
               </button>
             </div>
           </div>
-          <div className="col-3">
+          <div className="col">
             <h5>Pictogramas añadidos: {count}</h5>
           </div>
-          <div className="col-3">
-          <p>
-          <Link to="/agenda" className="btn btn-outline-success">
-            Agenda creada!
-          </Link>
-        </p>
+          <div className="col">
+            <p>
+              <Link to="/agenda" className="btn btn-outline-success">
+                Agenda creada!
+              </Link>
+            </p>
           </div>
         </div>
-        <div className="container-fluid">
-          <div className="row">
-            {/* <div className="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2"> */}
+        <div className="container text-center d-flex mt-1">
+          <div className="text-center d-flex mt-1">
+            <div className="row">
               {result.map((element) => {
                 return (
                   <>
@@ -127,7 +127,7 @@ export const Pictogramas = (props) => {
                   </>
                 );
               })}
-            {/* </div> */}
+            </div>
           </div>
         </div>
         <div>

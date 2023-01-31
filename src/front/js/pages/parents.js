@@ -112,7 +112,7 @@ export const Parents = (props) => {
   //     .catch((error) => console.log("error", error));
   // };
 
-const borrar = (id) => {
+const borrar = (url) => {
 
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -132,7 +132,7 @@ const borrar = (id) => {
     redirect: 'follow'
 };
 
-fetch( `${process.env.BACKEND_URL}/api/id`, requestOptions)
+fetch( `${process.env.BACKEND_URL}/api/${semana}/${momento}/${name}/${surname}/${url}`, requestOptions)
   .then(response => response.json())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
@@ -193,7 +193,7 @@ fetch( `${process.env.BACKEND_URL}/api/id`, requestOptions)
         <input className="ms-2" placeholder={name+" "+surname}></input>
       </div>
         <ul
-          className="nav nav-tabs container-fluid"
+          className="nav nav-tabs container"
           id="myTab"
           role="tablist"
           style={{ width: "fit-content" }}
@@ -212,16 +212,16 @@ fetch( `${process.env.BACKEND_URL}/api/id`, requestOptions)
                 aria-labelledby="home-tab"
               >
               <div className="row justify-content-start mt-3">
-                <div className="col-3">
+                <div className="col">
                   <nav className="navbar position-static">
-                    <div className="diaSemana" style={{ paddingLeft: "40px" }}>
+                    <div className="diaSemana offset-1">
                       <i class="far fa-calendar"> {dia}</i>
                       <Momento dia={dia} setSemana={setSemana} setMomento={setMomento}/>
                       {/* {name}{surname}{momento}{semana} */}
                     </div>
                   </nav>
                 </div>
-                <div className="col-8">
+                <div className="col-10">
                   <Pictogramas 
                     seleccionar={seleccionar}
                     borrar={borrar}
