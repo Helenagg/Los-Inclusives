@@ -118,8 +118,10 @@ export const Pictogramas = (props) => {
                               </button>
                             </Link>
                           </p>
-                          {element.keywords?.map((keyword) => {
-                            return <p>{keyword.keyword}</p>;
+                          {element.keywords?.map((keyword, index) => {
+                            
+                            return <p>{index == 0 ? keyword.keyword : null}</p>
+                            
                           })}
                         </>
                       }
