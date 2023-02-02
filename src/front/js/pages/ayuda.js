@@ -5,7 +5,7 @@ export const Ayuda = () => {
 
     return (
         <>
-            <div className="container text-start vh-100" style={{backgroundImage: `url("https://res.cloudinary.com/dmo7sg1on/image/upload/v1674325248/TEAyudo_App_-_Isotipo_qzc6k4.svg")`, backgroundRepeat:"no-repeat", backgroundSize:"cover"}}>
+            <div className="container text-start vh-100" style={{backgroundImage: `url("https://res.cloudinary.com/dmo7sg1on/image/upload/v1674325248/TEAyudo_App_-_Isotipo_qzc6k4.svg")`, backgroundRepeat:"no-repeat", backgroundSize:"contain"}}>
                 <div className="col-4 bg-white position-absolute top-50 start-50 translate-middle">
                     <div className="m-3">
                 <h2>

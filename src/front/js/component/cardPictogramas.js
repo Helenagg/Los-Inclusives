@@ -6,7 +6,10 @@ export const CardPictogramas = (props) => {
   
 
     return (
-        <div className = "cardPictogramas col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" key={props.Key}>
+      <>
+        {/* <div className = "cardPictogramas col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" key={props.Key}> */}
+        <div className="col">
+        <div className = "cardPictogramas" key={props.Key}>
           <div className ="card">
             <label>
             <figure>
@@ -19,6 +22,7 @@ export const CardPictogramas = (props) => {
             </div>
           </div>
         </div>
-
+        </div>
+        </>
   );
 };

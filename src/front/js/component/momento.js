@@ -12,7 +12,7 @@ export const Momento = ({ dia, setSemana, setMomento}) => {
   return (
     <>
     
-      <div className="momentoDia" style={{ paddingLeft: "30px" }}>
+      <div className="momentoDia offset-1">
         <div className="mañanas">
           <div>
             {momento.map((element) => {

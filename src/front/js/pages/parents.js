@@ -87,34 +87,60 @@ export const Parents = (props) => {
       .catch((error) => console.log("error", error));
   };
 //BORRAR PICTOGRAMAS
-  const borrar = (url) => {
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    var raw = JSON.stringify({
-      dias_semana: semana,
-      momentos_del_dia: momento,
-      nombre: name,
-      apellidos: surname,
-      urlP: url,
-    });
-    var requestOptions = {
-      method: "DELETE",
-      headers: myHeaders,
-      body: raw,
-      redirect: "follow",
-    };
-    fetch(
-      `${process.env.BACKEND_URL}/api/agenda`,
-      requestOptions
-    )
-      .then((response) => response.json())
-      .then((result) => console.log(result))
-      .catch((error) => console.log("error", error));
-  };
+  // const borrar = (url) => {
+  //   var myHeaders = new Headers();
+  //   myHeaders.append("Content-Type", "application/json");
+  //   var raw = JSON.stringify({
+  //     dias_semana: semana,
+  //     momentos_del_dia: momento,
+  //     nombre: name,
+  //     apellidos: surname,
+  //     urlP: url,
+  //   });
+  //   var requestOptions = {
+  //     method: "DELETE",
+  //     headers: myHeaders,
+  //     body: raw,
+  //     redirect: "follow",
+  //   };
+  //   fetch(
+  //     `${process.env.BACKEND_URL}/api/agenda`,
+  //     requestOptions
+  //   )
+  //     .then((response) => response.json())
+  //     .then((result) => console.log(result))
+  //     .catch((error) => console.log("error", error));
+  // };
+
+const borrar = (url) => {
+
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  var raw = JSON.stringify({
+    "dias_semana": semana,
+    "momentos_del_dia": momento,
+    "nombre": name,
+    "apellidos": surname,
+    "urlP": url
+  });
+
+  var requestOptions = {
+    method: 'DELETE',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+};
+
+fetch( `${process.env.BACKEND_URL}/api/${semana}/${momento}/${name}/${surname}/${url}`, requestOptions)
+  .then(response => response.json())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+}
 
   return (
     <>
-      
+    <div className="container-fluid h-100">
       <div className="mt-3 btn-group">
         <button
           type="button"
@@ -149,7 +175,7 @@ export const Parents = (props) => {
             <button className="btn btn-outline-success m-3">Agregar</button>
           </li>
         </ul>
-        <button
+        {/* <button
           type="button"
           className="ms-2 btn dropdown-toggle"
           data-bs-toggle="dropdown"
@@ -163,46 +189,48 @@ export const Parents = (props) => {
               {name} {surname}
             </p>
           </li>
-        </ul>
+        </ul> */}
+        <input className="ms-2" placeholder={name+" "+surname}></input>
       </div>
-      <ul
-        className="nav nav-tabs container-fluid"
-        id="myTab"
-        role="tablist"
-        style={{ width: "fit-content" }}
-      >
-        {dias.map((dia) => (
-          <Dia diaId={`#${dia}`} dia={dia} />
-        ))}
-      </ul>
-      <div className="tab-content" id="myTabContent">
-        {dias.map((dia) => (
-          
-            <div
-              className="tab-pane fade show"
-              id={dia}
-              role="tabpanel"
-              aria-labelledby="home-tab"
-            >
-            <div className="row justify-content-start mt-3">
-              <div className="col-3">
-                <nav className="navbar position-static">
-                  <div className="diaSemana" style={{ paddingLeft: "40px" }}>
-                    <i class="far fa-calendar"> {dia}</i>
-                    <Momento dia={dia} setSemana={setSemana} setMomento={setMomento}/>
-                    {/* {name}{surname}{momento}{semana} */}
-                  </div>
-                </nav>
+        <ul
+          className="nav nav-tabs container"
+          id="myTab"
+          role="tablist"
+          style={{ width: "fit-content" }}
+        >
+          {dias.map((dia) => (
+            <Dia diaId={`#${dia}`} dia={dia} />
+          ))}
+        </ul>
+        <div className="tab-content" id="myTabContent">
+          {dias.map((dia) => (
+            
+              <div
+                className="tab-pane fade show"
+                id={dia}
+                role="tabpanel"
+                aria-labelledby="home-tab"
+              >
+              <div className="row justify-content-start mt-3">
+                <div className="col">
+                  <nav className="navbar position-static">
+                    <div className="diaSemana offset-1">
+                      <i class="far fa-calendar"> {dia}</i>
+                      <Momento dia={dia} setSemana={setSemana} setMomento={setMomento}/>
+                      {/* {name}{surname}{momento}{semana} */}
+                    </div>
+                  </nav>
+                </div>
+                <div className="col-10">
+                  <Pictogramas 
+                    seleccionar={seleccionar}
+                    borrar={borrar}
+                  />
+                </div>
               </div>
-              <div className="col-8">
-                <Pictogramas 
-                  seleccionar={seleccionar}
-                  borrar={borrar}
-                />
-              </div>
-            </div>
-          </div>  
-        ))}
+            </div>  
+          ))}
+        </div>
       </div>
     </>
   );
