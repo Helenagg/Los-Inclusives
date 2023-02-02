@@ -2,7 +2,6 @@
     General Styles used on every website (Don't Repeat Yourself)
 */
 
-
 /* color:
 Amarillo FFD600
 Azul oscuro 1C4488
@@ -19,29 +18,29 @@ Azul claro 3888AD */
 } */
 
 .alto {
-    height: 75vh;
+  height: 75vh;
 }
 
 .btn {
-    background-color: #3888AD !important;
-    color: white;
-    border-color: #1C4488
+  background-color: #3888ad !important;
+  color: white;
+  border-color: #1c4488;
 }
 
 .btn-outline {
-    border: border_color
+  border: border_color;
 }
 
 .text_azul {
-    color: #3888AD
+  color: #3888ad;
 }
 
 .text_oscuro {
-    color: #1C4488
+  color: #1c4488;
 }
 
 .border_login {
-  border: 3px #3888AD solid;
+  border: 3px #3888ad solid;
 }
 
 .fondo {
@@ -91,4 +90,6 @@ Azul claro 3888AD */
     rgba(75, 29, 74, 0.5)
   );
 }
-
+.tab-content{
+  min-height: 86vh;
+}

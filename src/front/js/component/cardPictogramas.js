@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../../styles/cardPictogramas.css";
 
 export const CardPictogramas = (props) => {
+  
 
     return (
       <>
@@ -10,9 +11,12 @@ export const CardPictogramas = (props) => {
         <div className="col">
         <div className = "cardPictogramas" key={props.Key}>
           <div className ="card">
+            <label>
             <figure>
-              <img src = {props.imagen}/>
+              <img src = {props.imagen}/> 
             </figure>
+              </label>
+              
             <div className ="contenido">
               <p>{props.descripcion}</p>
             </div>

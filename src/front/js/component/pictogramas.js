@@ -120,8 +120,8 @@ export const Pictogramas = (props) => {
                           </p>
                           {element.keywords?.map((keyword, index) => {
                             
-                            return <p>{index == 0 ? keyword.keyword : null}</p>
-                            
+                            return <p style={{textTransform: "capitalize"}}>{index == 0 ? keyword.keyword : null}</p>
+                          
                           })}
                         </>
                       }
