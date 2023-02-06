@@ -248,7 +248,9 @@ export const Agenda = (props) => {
                   {pictosTarde &&
                     pictosTarde.map((picto, index) => (
                       <div key={index} className="PictoContenedor">
+                        <label onClick={() => setContador(contador + 1)}>
                         <CardPictogramas imagen={picto} />
+                        </label>
                       </div>
                     ))}
                 </div>
@@ -263,7 +265,9 @@ export const Agenda = (props) => {
                   {pictosNoche &&
                     pictosNoche.map((picto, index) => (
                       <div key={index} className="PictoContenedor">
+                        <label onClick={() => setContador(contador + 1)}>
                         <CardPictogramas imagen={picto} />
+                        </label>
                       </div>
                     ))}
                 </div>
