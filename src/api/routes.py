@@ -122,23 +122,32 @@ def crear_agenda():
 #    },
 #    return jsonify(agenda), 200
 
-@api.route('<string:dia_var>/<string:momento_var>/<string:nombre_var>/<string:apellidos_var>/<string:url_var>/', methods=['DELETE'])
-def borrar_agenda(dia_var, momento_var, nombre_var, apellidos_var, url_var):
-    agenda = Agenda.query.filter_by(
-        dias_semana=dia_var,
-        momentos_del_dia=momento_var,
-        nombre=nombre_var,
-        apellidos=apellidos_var,
-        urlP=url_var
-    )
-    db.session.delete(agenda)
-    db.session.commit()
+@api.route('/agenda', methods=['DELETE'])
+def borrar_agenda():
+    try:
+        dias= request.json.get("dias_semana")
+        momentos = request.json.get("momentos_del_dia")
+        nombre = request.json.get("nombre")
+        apellidos = request.json.get("apellidos")
+        url = request.json.get("urlP")
 
-    response_body = {
-        "message": "Delete Pictograma",
-    }
+        agenda = Agenda.query.filter_by(
+            dias_semana=dias,
+            momentos_del_dia=momentos,
+            nombre=nombre,
+            apellidos=apellidos,
+            urlP=url
+        ).first()
+        db.session.delete(agenda)
+        db.session.commit()
 
-    return jsonify(response_body), 200
+        response_body = {
+            "message": "Delete Pictograma",
+        }
+
+        return jsonify(response_body), 200
+    except Exception as e:
+        return jsonify({"error": e}), 400
 
 # @api.route("/pictogramas", methods=["POST"])
 # def crear_pictograma():
