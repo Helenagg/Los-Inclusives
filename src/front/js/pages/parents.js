@@ -132,7 +132,7 @@ const borrar = (url) => {
     redirect: 'follow'
 };
 
-fetch( `${process.env.BACKEND_URL}/api/${semana}/${momento}/${name}/${surname}/${url}`, requestOptions)
+fetch( `${process.env.BACKEND_URL}/api/agenda`, requestOptions)
   .then(response => response.json())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
